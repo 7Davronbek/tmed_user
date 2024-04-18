@@ -1,0 +1,23 @@
+.institution {
+  margin-bottom: 56px;
+  justify-content: space-between;
+
+  @media(max-width: 1200px) {
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  .card {
+
+    div {
+      background-color: var(--twed-light-grey);
+    }
+
+    @media(max-width: 1200px) {
+      max-width: 100%;
+    }
+  }
+}
+
+.wrap {
+}

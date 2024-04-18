@@ -1,0 +1,58 @@
+.streamContainer {
+  display: flex;
+  //padding: 80px 0;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 20px 30px;
+  border: 1px solid silver;
+  border-radius: 0 20px 20px 0;
+  justify-content: space-between;
+  height: 430px;
+
+  .message {
+    height: 85%;
+    overflow: auto;
+  }
+
+  .wrap {
+    margin-bottom: 12px;
+  }
+}
+
+.containerWrap {
+  display: flex;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 20px;
+
+  svg {
+    transform: rotate(90deg);
+
+    path {
+      stroke: #fff;
+    }
+  }
+}
+
+.streamerVideo {
+  width: 100%;
+  height: 490px;
+  position: relative;
+
+  @media(max-width: 992px) {
+    height: 100%;
+  }
+}
+
+.streamerChat {
+  @media(max-width: 992px) {
+    display: none;
+  }
+}

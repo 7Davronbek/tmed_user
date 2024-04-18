@@ -1,0 +1,38 @@
+.aboutNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+
+  .wrap {
+    background-color: var(--twed-light-grey);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+
+    .myBtn {
+      padding: 4px;
+      border-radius: 8px;
+      color: #000;
+      transition: none;
+      margin-right: 5px;
+
+      &:hover, &.active {
+        background: var(--gradient-bg);
+        color: #fff;
+      }
+    }
+
+    @media(max-width: 992px) {
+      margin-top: 20px;
+      width: 100%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: start;
+    }
+  }
+
+  @media(max-width: 992px) {
+    flex-direction: column;
+  }
+}

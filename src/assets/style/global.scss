@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+  --font: 'Inter', sans-serif;
+  --common-bg-color: #ffffff;
+  --twed-dark: #222222;
+  --twed-light-dark: #7F92A0;
+  --twed-grey: #2B3031;
+  --twed-light-grey: #F3F5F9;
+  --twed-success: #00C1C1;
+  --twed-danger: #FA193E;
+  --twed-warning: #fd9644;
+  --twed-blue: #10338C;
+  --twed-border: #E8EAEC;
+  --margin-bottom: 24px;
+  --margin-left: 16px;
+  --gradient-bg: linear-gradient(180deg, #10338C 0%, #00C1C1 100%)
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 20px;
+  //min-height: 100vh;
+}
+
+
+.primary-gradient-bg {
+  background: linear-gradient(180deg, #10338C 0%, #00C1C1 100%);
+}
+
+.primary-text-gradient {
+  background: linear-gradient(180deg, #10338C 0%, #00C1C1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @media(max-width: 1200px) {
+    width: 100%;
+    padding: 0 12px;
+  }
+}
+
+.mainLayout {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  color: #222;
+}
+
+img {
+  user-select: none;
+}
+
+.title {
+  font-family: var(--font);
+  font-size: 40px;
+  line-height: 48px;
+  color: var(--twed-grey);
+  font-weight: 700;
+
+  @media(max-width: 992px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0 !important;
+}
+
+.MuiPaper-elevation {
+  background-color: transparent;
+  box-shadow: none;
+
+  .MuiButtonBase-root {
+    justify-content: start;
+    padding: 0;
+  }
+
+  .MuiAccordionDetails-root {
+    padding: 0 8px;
+  }
+
+  .MuiAccordionSummary-content {
+    flex-grow: initial;
+    margin-right: 8px;
+  }
+}
+
+.headerSwiper {
+  overflow: visible !important;
+
+  .swiper-pagination {
+    bottom: -23px !important;
+    transition: all .3s ease-in-out;
+  }
+
+  .swiper-pagination-bullet {
+    transition: all .3s ease-in-out;
+    background: var(--gradient-bg);
+
+    &.swiper-pagination-bullet-active {
+      width: 32px;
+      border-radius: 7px;
+      background: var(--gradient-bg);
+    }
+  }
+}
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  width: 100px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  box-shadow: 0 0 10px silver;
+  background-color: #fff;
+  z-index: 999;
+
+  li {
+    user-select: none;
+  }
+}

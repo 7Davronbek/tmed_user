@@ -1,0 +1,21 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  img {
+    margin-right: 18px;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+
+  .link {
+    @media(max-width: 992px) {
+      display: none;
+    }
+  }
+}

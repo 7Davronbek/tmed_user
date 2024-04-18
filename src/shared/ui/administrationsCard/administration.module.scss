@@ -1,0 +1,103 @@
+.card {
+  background: var(--twed-light-grey) !important;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+
+  .wrapper {
+    width: 70%;
+    margin-left: auto;
+
+    @media(max-width: 992px) {
+      width: 100%;
+      box-sizing: content-box;
+    }
+  }
+
+  .myWrap {
+
+    @media(max-width: 992px) {
+      width: 280px;
+    }
+  }
+
+  .image {
+    width: 100% !important;
+    height: 400px !important;
+    object-fit: cover;
+
+    @media(max-width: 992px) {
+      height: 300px !important;
+    }
+  }
+
+  .head {
+    color: var(--twed-light-dark);
+    margin: 24px 0 8px !important;
+    text-transform: uppercase;
+  }
+
+  .name {
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--twed-dark);
+    font-weight: 600;
+  }
+
+  .gray {
+    color: var(--twed-light-dark);
+    margin-bottom: 6px !important;
+  }
+
+  .a {
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--twed-dark);
+    margin-bottom: 16px;
+    display: inline-block;
+    //margin-top: 6px;
+  }
+
+  @media(max-width: 1200px) {
+    max-width: 100%;
+    flex-basis: 49%;
+  }
+
+  @media(max-width: 992px) {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+.fullCard {
+  display: flex;
+  align-items: self-start;
+
+  @media(max-width: 1200px) {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .image {
+    width: 300px !important;
+    height: auto;
+
+    @media(max-width: 992px) {
+      width: 100% !important;
+      height: 600px !important;
+    }
+
+    @media(max-width: 767px) {
+      width: 100% !important;
+      height: 300px !important;
+    }
+  }
+
+  .wrap {
+    margin-left: 24px;
+  }
+
+  @media(max-width: 992px) {
+    flex-direction: column;
+  }
+}

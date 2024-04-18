@@ -1,0 +1,103 @@
+.serviceList {
+  margin: 0 0 46px;
+
+  .cardGrid {
+
+    div {
+      background-color: var(--twed-light-grey);
+    }
+  }
+
+  .myBtn {
+    border-radius: 70px;
+    padding: 16px 32px;
+    background: var(--twed-light-grey);
+
+    &:hover {
+      color: #fff;
+      background: var(--gradient-bg);
+      border-radius: 70px;
+    }
+  }
+
+  .gridWrap {
+
+    @media(max-width: 1200px) {
+      max-width: 100%;
+    }
+  }
+
+  .card {
+    padding: 15px 12px;
+    background: var(--twed-light-grey);
+    cursor: pointer;
+    border-radius: 12px;
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--twed-border);
+      padding-bottom: 8px;
+
+      h5 {
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+    }
+
+    @media(max-width: 1200px) {
+      width: 300px;
+      max-width: 100%;
+    }
+  }
+
+  .bottom {
+    padding-top: 8px;
+
+    h4 {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 8px;
+
+      span {
+        color: var(--twed-danger);
+        margin-left: 8px;
+        text-decoration: line-through;
+      }
+
+      .badge {
+        font-size: 12px;
+        line-height: 16px;
+        backgroundColor: var(--twed-success);
+        color: #fff;
+        padding: 0 4px;
+        border-radius: 22px;
+        margin-left: 8px;
+        text-decoration: none;
+      }
+    }
+
+    .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px
+    }
+
+    h3 {
+      color: var(--twed-light-dark);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  @media(max-width: 1200px) {
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-y: auto;
+    margin-bottom: 12px;
+  }
+}
