@@ -32,7 +32,7 @@ export const WelcomeScreen = () => {
       <div className={`container ${sx.containerWrap}`}>
         <h4 className={'title'}>{t('stream')}</h4>
 
-        {/*<div className={sx.w50} onClick={createClick}><BaseButton text={'Stream yaratish'} active={true} /></div>*/}
+        <div className={sx.w50} onClick={createClick}><BaseButton text={'Stream yaratish'} active={true} /></div>
         <br/>
         <br/>
         <br/>
