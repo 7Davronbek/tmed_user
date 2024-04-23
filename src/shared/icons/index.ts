@@ -10,6 +10,8 @@ import * as arrow from './arrow'
 import * as social from './prenav'
 import * as download from './download'
 import * as burger from './burger'
+import * as like from './like'
+import * as comment from './comment'
 
 export const Icon = {
   ...logo,
@@ -24,4 +26,6 @@ export const Icon = {
   ...social,
   ...download,
   ...burger,
+  ...like,
+  ...comment,
 }

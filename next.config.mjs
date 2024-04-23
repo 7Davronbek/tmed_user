@@ -8,6 +8,7 @@ const nextConfig = {
     TWED_CHAT_ID: process.env.TWED_CHAT_ID,
     TWED_ROOM_URL: process.env.TWED_ROOM_URL,
     TWED_ROOM_TOKEN: process.env.TWED_ROOM_TOKEN,
+    VITE_BASE_URL: process.env.VITE_BASE_URL
   },
 }
 

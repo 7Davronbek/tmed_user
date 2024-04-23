@@ -134,3 +134,37 @@ h1, h2, h3, h4, h5, h6, p {
     user-select: none;
   }
 }
+
+.newsSwiper {
+
+  .swiper-pagination-bullet {
+    transition: all .3s ease-in-out;
+    background: var(--gradient-bg);
+
+    &.swiper-pagination-bullet-active {
+      width: 32px;
+      border-radius: 7px;
+      background: var(--gradient-bg);
+    }
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    background: rgba(255, 255, 255, 0.82);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: all .1s ease-in-out;
+
+    &::after {
+      font-size: 14px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    &.swiper-button-disabled {
+      visibility: hidden;
+      opacity: 0;
+      scale: 0;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+OBOBOBimporOAOOAOOt {createEffect, createEvent, createStore, sample} from "effector";
+imOAOAOBOOOpoOBrtOBOO {newsApi, NewsType} from "@/entities";
+impoOBOrt {apOOOOBOOiListDBefaultData, ApiListType} from "@/shared";
+AOOOOOAAOOAOOOAOBO
+/* OOOBOOBA-------Ocer--OAO---------------------------------- Effects ------------------------------------------ */
+export const fetchNewsListFx = createEffect({handler: newsApi.fetchNewsList})
+
+/* ------------------------------------------- Events ------------------------------------------- */
+export const fetchNewsEv = createEvent()
+
+/* ------------------------------------------- Stores ------------------------------------------- */
+export const $news = createStore<ApiListType<NewsType>>(apiListDefaultData)
+
+/* -------------------------------------- Stores Modifying -------------------------------------- */
+// $news
+//     .on(fetchNewsListFx.doneData, (_, {data}) => data)
+
+/* ------------------------------------------- Samples ------------------------------------------ */
+
+sample({
+    clock: fetchNewsEv,
+    target: fetchNewsListFx
+})
