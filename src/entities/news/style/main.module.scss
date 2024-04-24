@@ -81,3 +81,67 @@
     width: 95%;
   }
 }
+
+.modalWrap {
+  transition: all .4s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(25px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modalCard {
+    height: 400px;
+    width: 35%;
+    background: var(--twed-light-dark);
+    padding: 30px 25px;
+    border-radius: 10px;
+    color: #fff;
+    z-index: 999;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //align-items: center;
+
+    h6 {
+      color: var(--twed-light-grey);
+    }
+
+    h5 {
+      font-size: 22px;
+      margin-bottom: 12px !important;
+    }
+
+    input {
+      display: block;
+      width: 80%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+    }
+  }
+
+  .close {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}

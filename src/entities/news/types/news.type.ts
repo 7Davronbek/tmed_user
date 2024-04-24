@@ -1,3 +1,17 @@
+import {ApiListType, QueryParamsType} from '@/shared';
+
+export type CommentType = {
+    id: number,
+    name: string,
+    lastname: string,
+    user: string,
+    org: string,
+    text: string,
+    date: string,
+    post: number,
+    reply_to: number
+}
+
 export type NewsType = {
     id: number,
     text: string,
@@ -25,7 +39,7 @@ export type Repost = {
     date: string
 }
 
-export type Product ={
+export type Product = {
     id: number,
     product: number,
     qty: number,
@@ -41,4 +55,30 @@ export type Media = {
     main: boolean,
     type: string,
     post: number
+}
+
+export type Comments = {
+    id: number,
+    name: string,
+    lastname: string,
+    user: string,
+    org: string,
+    text: string,
+    date: string,
+    post: number,
+    reply_to: number
+}
+
+export type NewsStore = {
+    isLoading: boolean,
+    error?: string,
+    news: ApiListType<NewsType> | null,
+    comments: ApiListType<Comments> | null,
+    getNews: () => void,
+    getComments: (postId: string) => void,
+    isCommentModalOpen: boolean,
+    toggleModal: () => void,
+
+    getInfinityNews: (params: QueryParamsType) => void,
+    infinityNews: ApiListType<NewsType>
 }

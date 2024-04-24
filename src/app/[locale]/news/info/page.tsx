@@ -6,7 +6,7 @@ const InfoPage = () => {
   const t = useTranslations('News')
   return (
     <NewsLayout title={t('usefulInfo')}>
-      <News />
+        InfoPage
     </NewsLayout>
   )
 }

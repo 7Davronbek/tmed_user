@@ -10,6 +10,10 @@ const nextConfig = {
     TWED_ROOM_TOKEN: process.env.TWED_ROOM_TOKEN,
     VITE_BASE_URL: process.env.VITE_BASE_URL
   },
+  images: {
+    unoptimized: true,
+    domains : ['dwed.fra1.digitaloceanspaces.com', 'localhost']
+  }
 }
 
 export default withNextIntl(nextConfig)

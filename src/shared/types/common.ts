@@ -24,6 +24,8 @@ export type LocalstorageData = {
   username?: string
 }
 
+export type Nullable<D> = D | null
+
 export const T_MED_DATA = 'T_MED_DATA'
 export const CONFERENCE = 'CONFERENCE'
 export const VIEWER = 'VIEWER'
