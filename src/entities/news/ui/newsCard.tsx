@@ -15,17 +15,13 @@ import {$newsList, fetchInfiniteNewsFx, getCommentIdEv, getInfiniteNewsEv} from 
 import {useLocale} from "next-intl";
 import {useUnit} from "effector-react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {useEffect} from "react";
 
 export const NewsCard = () => {
     // const {news, error, isLoading, getComments, toggleModal} = useNewsStore()
     const [{results, next, next_offset}, isLoading] = useUnit([$newsList, fetchInfiniteNewsFx.pending])
     const locale = useLocale()
-    useEffect(() => {
-        getInfiniteNewsEv({limit: 50, offset: 0})
-    }, []);
     return (
-        <>
+        <div>
             {isLoading && <MiniLoader/>}
             {/*{error && error}*/}
 
@@ -78,20 +74,21 @@ export const NewsCard = () => {
                             <div className={sx.bottom}>
                                 <div className={sx.wrap}>
                                     <Icon.Like/>
-                                    <div><Icon.Comment/>
+                                    <div>
+                                        <Icon.Comment/>
                                     </div>
 
                                 </div>
                                 <h3>{item.likes_count} Likes</h3>
                                 <h4><span>{item.author_fullname}</span> {item.text}</h4>
                                 <h5 onClick={() => getCommentIdEv(String(item.id))}>Barcha {item.comment_count}ta izohni
-                                    ko'ring</h5>
+                                    ko&aposring</h5>
                                 <h6>{formattedDate}</h6>
                             </div>
                         </div>
                     )
                 })}
             </InfiniteScroll>
-        </>
+        </div>
     )
 }

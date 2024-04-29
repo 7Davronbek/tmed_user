@@ -11,7 +11,7 @@ import Image from 'next/image'
 
 export const HeaderMobile = () => {
   return (
-    <>
+    <div>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -69,6 +69,6 @@ export const HeaderMobile = () => {
           />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   )
 }

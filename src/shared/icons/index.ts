@@ -12,6 +12,7 @@ import * as download from './download'
 import * as burger from './burger'
 import * as like from './like'
 import * as comment from './comment'
+import * as stream from './stream'
 
 export const Icon = {
   ...logo,
@@ -28,4 +29,5 @@ export const Icon = {
   ...burger,
   ...like,
   ...comment,
+  ...stream,
 }

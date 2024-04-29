@@ -4,13 +4,13 @@ import sx from './style.module.scss'
 
 export const HeaderBanner = () => {
   return (
-    <>
+    <div>
       <div className={sx.desktop}>
         <HeaderDesktop />
       </div>
       <div className={sx.mobile}>
         <HeaderMobile />
       </div>
-    </>
+    </div>
   )
 }

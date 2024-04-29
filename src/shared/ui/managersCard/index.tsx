@@ -15,7 +15,7 @@ export const ManagersCard: FC<Manager> = ({ image, name, phoneNumber, admissionD
     }
 
   return (
-    <>
+    <div>
       <Grid className={sx.card + ' ' + sx.fullCard} item xs={12}>
         <Image
           src={image}
@@ -47,7 +47,7 @@ export const ManagersCard: FC<Manager> = ({ image, name, phoneNumber, admissionD
             </AccordionDetails>
           </Accordion>
 
-          {permission ? <>
+          {permission ? <div>
 
             <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
               <AccordionSummary
@@ -65,11 +65,11 @@ export const ManagersCard: FC<Manager> = ({ image, name, phoneNumber, admissionD
                 </p>
               </AccordionDetails>
             </Accordion>
-          </> : null}
+          </div> : null}
         </div>
 
 
       </Grid>
-    </>
+    </div>
   )
 }

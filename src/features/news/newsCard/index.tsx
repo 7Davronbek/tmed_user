@@ -1,17 +1,15 @@
 'use client'
-import {CommentModal, NewsCard, useNewsStore} from "@/entities";
+import {CommentModal, getInfiniteNewsEv, NewsCard,} from "@/entities";
 import {useEffect} from "react";
 
 export const NewsCardFeature = () => {
-    const getNews = useNewsStore(state => state.getNews)
-
     useEffect(() => {
-        getNews()
-    }, [])
+        getInfiniteNewsEv({limit: 20, offset: 0})
+    }, []);
     return (
         <div>
-            <NewsCard  />
-            <CommentModal />
+            <NewsCard/>
+            <CommentModal/>
         </div>
     )
 }

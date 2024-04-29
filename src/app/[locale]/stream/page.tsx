@@ -1,13 +1,10 @@
-import { WelcomeScreen } from '@/entities'
-import { Suspense } from 'react'
-import { Loader } from '@/shared'
+import {StreamCard} from "@/features";
 
 const StreamPage = () => {
-  return (
-    <Suspense fallback={<Loader />}>
-      <WelcomeScreen />
-    </Suspense>
-  )
+
+    return (
+        <StreamCard/>
+    )
 }
 
 export default StreamPage

@@ -4,7 +4,7 @@ import sx from './style.module.scss'
 
 export const Institution = () => {
   return (
-    <>
+    <div>
       <Grid className={sx.wrap} container spacing={3}>
         <Grid item xs={5}>
         </Grid>
@@ -26,7 +26,7 @@ export const Institution = () => {
           <BaseButton text={'Markaziy klinik kasalxona'} />
         </Grid>
       </Grid>
-    </>
+    </div>
   )
 }
 

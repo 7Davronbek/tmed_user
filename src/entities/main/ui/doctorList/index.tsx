@@ -5,7 +5,7 @@ import sx from './style.module.scss'
 
 export const DoctorList = () => {
   return (
-    <>
+    <div>
       <Grid className={sx.doctorList} container justifyContent={'space-between'}>
         <Grid className={sx.gridWrap} item xs={3.9}>
           <div className={sx.cards}>
@@ -50,6 +50,6 @@ export const DoctorList = () => {
           </div>
         </Grid>
       </Grid>
-    </>
+    </div>
   )
 }

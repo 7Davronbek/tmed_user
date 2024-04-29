@@ -1,3 +1,4 @@
+'use client'
 import { DocsList } from '@/entities'
 
 const DocsPage = () => {

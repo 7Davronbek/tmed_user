@@ -1,9 +1,9 @@
 
 const MinisterialDecision = () => {
   return (
-      <>
+      <div>
         MinisterialDecision
-      </>
+      </div>
   )
 }
 

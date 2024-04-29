@@ -1,3 +1,2 @@
-export * from './welcomeScreen'
-export * from './chat'
-export * from './viewer'
+export * from './VisionConnect'
+export * from './controls'

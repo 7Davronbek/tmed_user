@@ -1,3 +1,4 @@
+'use client'
 import { Grid } from '@mui/material'
 import Link from 'next/link'
 import { BaseButton } from '@/shared'
@@ -20,7 +21,7 @@ import { useTranslations } from 'next-intl'
 export default function Home() {
   const t = useTranslations('Main')
   return (
-    <>
+    <div>
       <div className="container">
         <HeaderBanner />
 
@@ -79,6 +80,6 @@ export default function Home() {
 
         <FeedbackForm />
       </div>
-    </>
+    </div>
   )
 }
