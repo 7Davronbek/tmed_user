@@ -3,7 +3,10 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import {Constants, MeetingConsumer, MeetingProvider, useMeeting, useParticipant,} from "@videosdk.live/react-sdk";
 import Hls from "hls.js";
 import ReactPlayer from "react-player";
-import {MiniLoader} from "@/shared";
+import {Icon, MiniLoader} from "@/shared";
+import sx from "@/entities/stream/style/style.module.scss";
+import Chat from "@/features/chat";
+
 // import sx from './live.module.scss'
 
 function JoinScreen({getMeetingAndToken, setMode}) {
@@ -204,7 +207,7 @@ function ViewerView() {
         <div>
             {hlsState !== "HLS_PLAYABLE" ? (
                 <div>
-                    <p>Live stream xali boshlanmadi yoki vaqtinchalik to&aposxtatildi</p>
+                    <p style={{textAlign: 'center', padding: '10px 0'}}>Live stream xali boshlanmadi yoki vaqtinchalik toxtatildi</p>
                 </div>
             ) : (
                 hlsState === "HLS_PLAYABLE" && (
@@ -230,7 +233,6 @@ function ViewerView() {
 
 function Container(props) {
     const [joined, setJoined] = useState(null);
-    //Get the method which will be used to join the meeting.
     const {join} = useMeeting();
     const mMeeting = useMeeting({
         //callback for when a meeting is joined successfully
@@ -241,7 +243,6 @@ function Container(props) {
         onMeetingLeft: () => {
             props.onMeetingLeave();
         },
-        //callback for when there is an error in a meeting
         onError: (error) => {
             alert(error.message);
         },
@@ -251,26 +252,50 @@ function Container(props) {
         join();
     }, [])
 
+    const [copy, setCopy] = useState(false)
+    const handleCopy = () => {
+        setCopy(true)
+        navigator.clipboard.writeText(props.meetingId)
+
+        setTimeout(() => {
+            setCopy(false)
+        }, 3000)
+    }
+
     return (
         <div className="container">
-            <h3>LIVE ID: {props.meetingId}</h3>
             {joined && joined === "JOINED" ? (
                 mMeeting.localParticipant.mode === Constants.modes.CONFERENCE ? (
                     <SpeakerView/>
                 ) : mMeeting.localParticipant.mode === Constants.modes.VIEWER ? (
-                    <ViewerView/>
+                    <div>
+                        <ViewerView/>
+                        <div className={sx.buttons}>
+                            <h5 onClick={() => handleCopy()}
+                                style={{display: 'flex', gap: '5px'}}>{props.meetingId} {!copy ? <Icon.Copy/> :
+                                <Icon.CopySuccess/>} </h5>
+                            <h5 className={sx.end} onClick={() => props.onMeetingLeave()}>Chiqish</h5>
+                            <h5 onClick={() => props.setModal(true)} className={sx.chat}>
+                                <Icon.ChatWhite/>
+                            </h5>
+                        </div>
+                        <div className={`${sx.right} ${props.modal ? sx.active : ''}`}>
+                            <Chat modal={props.modal}/>
+                            <div onClick={() => props.setModal(false)} className={sx.close}></div>
+                        </div>
+                    </div>
                 ) : null
             ) : joined && joined === "JOINING" ? (
-                <p><MiniLoader /></p>
+                <p><MiniLoader/></p>
             ) : null}
-            <h5 onClick={() => props.onMeetingLeave()}>leave</h5>
         </div>
     );
 }
 
-function LiveApp({getMeetingAndToken, meetingId, onMeetingLeave}) {
+function LiveApp({getMeetingAndToken, meetingId, onMeetingLeave, modal, setModal}) {
     return (
-        <Container onMeetingLeave={onMeetingLeave} meetingId={meetingId} getMeetingAndToken={getMeetingAndToken}/>
+        <Container modal={modal} setModal={setModal} onMeetingLeave={onMeetingLeave} meetingId={meetingId}
+                   getMeetingAndToken={getMeetingAndToken}/>
     )
 }
 

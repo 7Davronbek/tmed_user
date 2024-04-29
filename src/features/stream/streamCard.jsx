@@ -12,6 +12,7 @@ export const StreamCard = () => {
     const [meetingId, setMeetingId] = useState(null);
     const [username, setUsername] = useState('')
     const [isLive, setIsLive] = useState(false)
+    const [modal, setModal] = useState(false)
     const getMeetingAndToken = async (id) => {
         const meetingId =
             id == null ? await createMeeting({token: authToken}) : id;
@@ -28,16 +29,15 @@ export const StreamCard = () => {
                 micEnabled: true,
                 webcamEnabled: true,
                 name: username,
-
                 mode: isLive ? 'VIEWER' : 'CONFERENCE'
             }}
             token={authToken}
         >
             {
                 isLive ?
-                    <LiveApp onMeetingLeave={onMeetingLeave} meetingId={meetingId} getMeetingAndToken={getMeetingAndToken}/>
+                    <LiveApp modal={modal} setModal={setModal} onMeetingLeave={onMeetingLeave} meetingId={meetingId} getMeetingAndToken={getMeetingAndToken}/>
                     :
-                    <MeetingConfig meetingId={meetingId} onMeetingLeave={onMeetingLeave}/>
+                    <MeetingConfig modal={modal} setModal={setModal} meetingId={meetingId} onMeetingLeave={onMeetingLeave}/>
             }
         </MeetingProvider>
     ) : (

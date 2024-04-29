@@ -17,6 +17,13 @@
   h6 {
     font-size: 14px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      color: #7F92A0;
+    }
   }
 
   p {

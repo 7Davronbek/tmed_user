@@ -14,10 +14,10 @@ export const LiveConnect = ({getMeetingAndToken, setUsername, setIsLive}) => {
     return (
         <div className={sx.streamCard}>
             <div className={sx.top}>
-                <h2>T-MED VISION CONNECT</h2>
+                <h2>T-MED LIVE STREAM</h2>
             </div>
             <div className={sx.middle}>
-                <Image src={live} alt={'Vision connect'}/>
+                <Image src={live} alt={'T-MED LIVE STREAM'}/>
             </div>
             <div className={sx.bottom}>
                 <TextField

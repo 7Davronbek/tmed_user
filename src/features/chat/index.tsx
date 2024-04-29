@@ -3,12 +3,13 @@ import React, {FormEvent, useState} from 'react'
 import {usePubSub} from '@videosdk.live/react-sdk'
 import sx from './chat.module.scss'
 import {TextField} from "@mui/material";
-import {BaseButton} from "@/shared";
+import {BaseButton, TimeFormatter} from "@/shared";
+import {useLocale} from "next-intl";
 
 const Chat = ({modal}: {modal: boolean}) => {
-
     const topic = 'CHAT'
     const [input, setInput] = useState('')
+    const locale = useLocale()
 
     const {publish, messages} = usePubSub(topic, {
         onMessageReceived: (message) => {
@@ -32,12 +33,16 @@ const Chat = ({modal}: {modal: boolean}) => {
             </div>
             <div className={sx.message}>
                 {messages.map(item => {
+                    console.log(item)
                     return (
                         <div className={sx.wrap} key={item.id}>
                             <div className={sx.imgWrap}>{item.senderName.substring(0,1).toUpperCase()}</div>
                             <div>
-                                <h6>{item.senderName}</h6>
+                                <h6>{item.senderName}
+                                    <span>{TimeFormatter.timeFormatterFn(item.timestamp, locale).substring(11)}</span>
+                                </h6>
                                 <p>{item.message}</p>
+
                             </div>
                         </div>
                     )
