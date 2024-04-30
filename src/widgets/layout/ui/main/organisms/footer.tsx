@@ -9,6 +9,7 @@ import card from '@/assets/images/card.png'
 import { useTranslations } from 'next-intl'
 import React, { useState } from 'react'
 import InputMask from 'react-input-mask'
+import {toast} from "react-toastify";
 
 export const Footer = () => {
   const [phone, setPhone] = useState('+998')
@@ -16,10 +17,14 @@ export const Footer = () => {
   const t = useTranslations('Main')
 
   const sendFeedbackForm = async () => {
-    setIsLoading(true)
-    await sendFeedback({ phone })
-    setIsLoading(false)
-    setPhone('+998')
+    if(phone.length < 19) {
+      toast.error('Phone number is important')
+    } else {
+      setIsLoading(true)
+      await sendFeedback({ phone })
+      setIsLoading(false)
+      setPhone('+998')
+    }
   }
   return (
     <div className={sx.footer}>
@@ -41,7 +46,6 @@ export const Footer = () => {
               placeholder={'+998_'}
               className={sx.inputMask}
             />
-
             <a style={{ opacity: `${isLoading ? '0.5' : '1'}` }} onClick={!isLoading ? sendFeedbackForm : () => {}}>{t('send')}</a>
           </Grid>
         </Grid>

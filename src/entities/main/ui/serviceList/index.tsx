@@ -5,7 +5,6 @@ import sx from './style.module.scss'
 export const ServiceList = () => {
   return (
     <div>
-
       <Grid className={sx.serviceList} container spacing={2}>
         <Grid className={sx.cardGrid}  item>
           <BaseButton text={'Аллерголог (6)'} active={true} />

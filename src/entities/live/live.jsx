@@ -6,6 +6,7 @@ import ReactPlayer from "react-player";
 import {Icon, MiniLoader} from "@/shared";
 import sx from "@/entities/stream/style/style.module.scss";
 import Chat from "@/features/chat";
+import {toast} from "react-toastify";
 
 // import sx from './live.module.scss'
 
@@ -94,7 +95,7 @@ function ParticipantView(props) {
                     height={"300px"}
                     width={"300px"}
                     onError={(err) => {
-                        console.log(err, "participant video error");
+                        toast.error(err.message ? err.message : 'Participant video error')
                     }}
                 />
             )}
@@ -221,7 +222,7 @@ function ViewerView() {
                             playsInline
                             muted={false}
                             onError={(err) => {
-                                console.log(err, "hls video error");
+                                toast.error(err?.message ? err.message : 'hls video error')
                             }}
                         ></video>
                     </div>
@@ -239,7 +240,6 @@ function Container(props) {
         onMeetingJoined: () => {
             setJoined("JOINED");
         },
-        //callback for when a meeting is left
         onMeetingLeft: () => {
             props.onMeetingLeave();
         },

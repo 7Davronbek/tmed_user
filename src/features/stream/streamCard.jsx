@@ -8,6 +8,7 @@ import {MeetingConfig} from "@/entities/stream/ui/meetingConfig";
 import LiveApp from "@/entities/live/live";
 import {LiveConnect} from "@/entities/stream/ui/liveCard";
 
+
 export const StreamCard = () => {
     const [meetingId, setMeetingId] = useState(null);
     const [username, setUsername] = useState('')

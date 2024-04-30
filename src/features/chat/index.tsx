@@ -5,10 +5,12 @@ import sx from './chat.module.scss'
 import {TextField} from "@mui/material";
 import {BaseButton, TimeFormatter} from "@/shared";
 import {useLocale} from "next-intl";
+import ScrollToBottom, {useScrollToBottom, useSticky} from 'react-scroll-to-bottom';
 
-const Chat = ({modal}: {modal: boolean}) => {
+const Chat = ({modal}: { modal: boolean }) => {
     const topic = 'CHAT'
     const [input, setInput] = useState('')
+    const scrollToBottom = useScrollToBottom();
     const locale = useLocale()
 
     const {publish, messages} = usePubSub(topic, {
@@ -22,6 +24,7 @@ const Chat = ({modal}: {modal: boolean}) => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        scrollToBottom()
         publish(input, {persist: true})
         setInput('')
     }
@@ -31,12 +34,12 @@ const Chat = ({modal}: {modal: boolean}) => {
             <div className={sx.top}>
                 <h3>Streaming chat</h3>
             </div>
-            <div className={sx.message}>
+            <ScrollToBottom className={sx.message}>
                 {messages.map(item => {
                     console.log(item)
                     return (
                         <div className={sx.wrap} key={item.id}>
-                            <div className={sx.imgWrap}>{item.senderName.substring(0,1).toUpperCase()}</div>
+                            <div className={sx.imgWrap}>{item.senderName.substring(0, 1).toUpperCase()}</div>
                             <div>
                                 <h6>{item.senderName}
                                     <span>{TimeFormatter.timeFormatterFn(item.timestamp, locale).substring(11)}</span>
@@ -47,7 +50,7 @@ const Chat = ({modal}: {modal: boolean}) => {
                         </div>
                     )
                 })}
-            </div>
+            </ScrollToBottom>
             <form style={{display: 'flex'}} onSubmit={handleSubmit}>
                 <TextField fullWidth value={input} onChange={e => setInput(e.target.value)} type="text"/>
                 <button className={sx.button} type={'submit'}><BaseButton active={true} text={'Yuborish'}/></button>

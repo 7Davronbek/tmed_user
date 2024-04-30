@@ -3,6 +3,7 @@ import {useMeeting, useParticipant} from "@videosdk.live/react-sdk";
 import ReactPlayer from "react-player";
 import sx from '../style/style.module.scss'
 import {Icon} from "@/shared";
+import {toast} from "react-toastify";
 
 export const ParticipantView = ({participantId,}: { participantId: string }) => {
     const micRef = useRef<HTMLAudioElement>(null);
@@ -46,22 +47,10 @@ export const ParticipantView = ({participantId,}: { participantId: string }) => 
 
     return (
         <div key={participantId}>
-            <div>
-                {/*<h5 onClick={() => handleWebcam()}>Webcam: {webcamOn ? "ON" : "OFF"}</h5>*/}
-                {/*<h5 onClick={() => handleMic()}>Mic:{" "}{micOn ? "ON" : "OFF"}</h5>*/}
-            </div>
-
-            {/*<div className={sx.buttons}>*/}
-            {/*    <h5 onClick={() => toggleWebcam()}>{webcamOn ? <Icon.VideoOn/> : <Icon.VideoOff/>}</h5>*/}
-            {/*    <h5 onClick={() => toggleMic()}>{micOn ? <Icon.MicrofonOn/> : <Icon.MicrofonOff/>}</h5>*/}
-            {/*    <h5 onClick={() => leave()}>Leave</h5>*/}
-            {/*</div>*/}
-
             <audio ref={micRef} autoPlay muted={isLocal}/>
             {webcamOn ? (
                 <div className={sx.videoWrap}>
                     <ReactPlayer
-                        //
                         playsinlinet
                         pip={false}
                         light={false}
@@ -73,7 +62,7 @@ export const ParticipantView = ({participantId,}: { participantId: string }) => 
                         width={"100%"}
                         style={{objectFit: 'cover'}}
                         onError={(err) => {
-                            console.log(err, "participant video error");
+                            toast.error(err.message ? err.message : 'Participant video error')
                         }}
                     />
                 </div>

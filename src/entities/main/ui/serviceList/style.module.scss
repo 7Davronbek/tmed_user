@@ -70,7 +70,7 @@
       .badge {
         font-size: 12px;
         line-height: 16px;
-        backgroundColor: var(--twed-success);
+        background-color: var(--twed-success);
         color: #fff;
         padding: 0 4px;
         border-radius: 22px;
@@ -94,10 +94,15 @@
     }
   }
 
-  @media(max-width: 1200px) {
-    flex-wrap: nowrap;
+  @media(max-width: 992px) {
+    flex-wrap: nowrap !important;
     width: 100%;
     overflow-y: auto;
     margin-bottom: 12px;
+
+    &::-webkit-scrollbar-track, &::-webkit-scrollbar {
+      height: 0;
+      background: silver;
+    }
   }
 }

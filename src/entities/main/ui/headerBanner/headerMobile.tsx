@@ -17,7 +17,7 @@ export const HeaderMobile = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 100000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         loop={true}

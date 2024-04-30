@@ -105,6 +105,10 @@ h1, h2, h3, h4, h5, h6, p {
 .headerSwiper {
   overflow: visible !important;
 
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
+  }
+
   .swiper-pagination {
     bottom: -23px !important;
     transition: all .3s ease-in-out;
@@ -170,4 +174,8 @@ h1, h2, h3, h4, h5, h6, p {
       scale: 0;
     }
   }
+}
+
+.react-scroll-to-bottom--css-utjog-1tj0vk3 {
+  display: none;
 }

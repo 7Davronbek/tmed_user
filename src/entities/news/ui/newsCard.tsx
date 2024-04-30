@@ -17,14 +17,11 @@ import {useUnit} from "effector-react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export const NewsCard = () => {
-    // const {news, error, isLoading, getComments, toggleModal} = useNewsStore()
     const [{results, next, next_offset}, isLoading] = useUnit([$newsList, fetchInfiniteNewsFx.pending])
     const locale = useLocale()
     return (
         <div>
             {isLoading && <MiniLoader/>}
-            {/*{error && error}*/}
-
             <InfiniteScroll
                 dataLength={next_offset}
                 style={{overflow: 'visible'}}
@@ -74,16 +71,21 @@ export const NewsCard = () => {
                             <div className={sx.bottom}>
                                 <div className={sx.wrap}>
                                     <Icon.Like/>
-                                    <div>
+                                    <div onClick={() => getCommentIdEv(item)}>
                                         <Icon.Comment/>
                                     </div>
-
                                 </div>
                                 <h3>{item.likes_count} Likes</h3>
+                                {/*<h4><span>{item.author_fullname}</span> {item.text.length > 40 ? item.text.substring(0, 40) + '...' : item.text}</h4>*/}
                                 <h4><span>{item.author_fullname}</span> {item.text}</h4>
-                                <h5 onClick={() => getCommentIdEv(String(item.id))}>Barcha {item.comment_count}ta izohni
-                                    ko&aposring</h5>
+                                {item.comment_count !== 0 &&
+                                    <h5 onClick={() => getCommentIdEv(item)}>Barcha {item.comment_count}ta
+                                        izohni
+                                        ko`ring</h5>
+                                }
+
                                 <h6>{formattedDate}</h6>
+
                             </div>
                         </div>
                     )

@@ -13,6 +13,7 @@
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.23);
     padding: 12px;
+    box-sizing: border-box;
 
     &:focus-visible {
       border-color: #007aff;
@@ -49,7 +50,7 @@
   }
 
   @media(max-width: 992px) {
-    flex-direction: column;
+    flex-direction: column !important;
     padding-bottom: 60px;
   }
 }

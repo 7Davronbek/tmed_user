@@ -6,7 +6,6 @@ import { Manager } from '@/shared'
 
 export const AdministrationsCard: FC<Manager> = ({ image, name, phoneNumber, admissionDay, jobTitle, email }) => {
   return (
-    <div>
       <Grid className={sx.card} item xs={3.9}>
         <div className={sx.myWrap}>
           <Image
@@ -28,6 +27,5 @@ export const AdministrationsCard: FC<Manager> = ({ image, name, phoneNumber, adm
           <p className={sx.a}>{email}</p>
         </div>
       </Grid>
-    </div>
   )
 }
