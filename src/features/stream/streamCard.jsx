@@ -14,8 +14,6 @@ export const StreamCard = () => {
     const [username, setUsername] = useState('')
     const [isLive, setIsLive] = useState(false)
     const [modal, setModal] = useState(false)
-    console.log(authToken)
-    console.log(meetingId)
     const getMeetingAndToken = async (id) => {
         const meetingId =
             id == null ? await createMeeting({token: authToken}) : id;

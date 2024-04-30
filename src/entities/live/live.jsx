@@ -250,7 +250,7 @@ function Container(props) {
     useEffect(() => {
         setJoined("JOINING");
         join();
-    }, [])
+    }, [props.meetingId, props.getMeetingAndToken])
 
     const [copy, setCopy] = useState(false)
     const handleCopy = () => {

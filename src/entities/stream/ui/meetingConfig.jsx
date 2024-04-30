@@ -24,7 +24,7 @@ export const MeetingConfig = ({onMeetingLeave, meetingId, modal, setModal}) => {
             join();
         };
         joinMeeting()
-    }, []);
+    }, [meetingId]);
 
     return (
         <div className={sx.meetingWrap}>
