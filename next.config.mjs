@@ -3,6 +3,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const withNextIntl = createNextIntlPlugin()
 
 const nextConfig = {
+  reactStrictMode: true,
   env: {
     TWED_BOT_TOKEN: process.env.TWED_BOT_TOKEN,
     TWED_CHAT_ID: process.env.TWED_CHAT_ID,

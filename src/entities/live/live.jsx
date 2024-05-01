@@ -1,14 +1,12 @@
 'use client'
 import React, {useEffect, useMemo, useRef, useState} from "react";
-import {Constants, MeetingConsumer, MeetingProvider, useMeeting, useParticipant,} from "@videosdk.live/react-sdk";
+import {Constants, useMeeting, useParticipant,} from "@videosdk.live/react-sdk";
 import Hls from "hls.js";
 import ReactPlayer from "react-player";
 import {Icon, MiniLoader} from "@/shared";
 import sx from "@/entities/stream/style/style.module.scss";
 import Chat from "@/features/chat";
 import {toast} from "react-toastify";
-
-// import sx from './live.module.scss'
 
 function JoinScreen({getMeetingAndToken, setMode}) {
     const [meetingId, setMeetingId] = useState(null);
@@ -208,7 +206,8 @@ function ViewerView() {
         <div>
             {hlsState !== "HLS_PLAYABLE" ? (
                 <div>
-                    <p style={{textAlign: 'center', padding: '10px 0'}}>Live stream xali boshlanmadi yoki vaqtinchalik toxtatildi</p>
+                    <p style={{textAlign: 'center', padding: '10px 0'}}>Live stream xali boshlanmadi yoki vaqtinchalik
+                        toxtatildi</p>
                 </div>
             ) : (
                 hlsState === "HLS_PLAYABLE" && (
@@ -248,8 +247,13 @@ function Container(props) {
         },
     });
     useEffect(() => {
-        setJoined("JOINING");
-        join();
+        const joins = () => {
+            setJoined("JOINING");
+            setTimeout(() => {
+                join();
+            }, 1500)
+        }
+        joins()
     }, [props.meetingId, props.getMeetingAndToken])
 
     const [copy, setCopy] = useState(false)

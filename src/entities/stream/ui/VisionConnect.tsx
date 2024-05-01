@@ -10,7 +10,7 @@ export const VisionConnect = ({getMeetingAndToken, setUsername, setIsLive}: {
     setUsername: (value: string) => void,
     setIsLive: (value: boolean) => void
 }) => {
-    const [meetingId, setMeetingId] = useState<string | undefined>('');
+    const [meetingId, setMeetingId] = useState<string>('');
     const handleSubmit = async () => {
         getMeetingAndToken(meetingId);
         setIsLive(false)
