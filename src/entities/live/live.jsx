@@ -7,6 +7,7 @@ import {Icon, MiniLoader} from "@/shared";
 import sx from "@/entities/stream/style/style.module.scss";
 import Chat from "@/features/chat";
 import {toast} from "react-toastify";
+import {usePathname} from "next/navigation";
 
 function JoinScreen({getMeetingAndToken, setMode}) {
     const [meetingId, setMeetingId] = useState(null);
@@ -247,11 +248,12 @@ function Container(props) {
         },
     });
     useEffect(() => {
+        window.scrollTo(0,0);
         const joins = () => {
             setJoined("JOINING");
             setTimeout(() => {
                 join();
-            }, 1500)
+            }, 2000)
         }
         joins()
     }, [props.meetingId, props.getMeetingAndToken])

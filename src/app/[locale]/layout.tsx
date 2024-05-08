@@ -4,6 +4,7 @@ import { Loader, RootLayoutProps } from '@/shared'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { ToastContainer } from 'react-toastify';
+import ScrollToTop from "@/shared/utils/scrollToTop";
 
 export const metadata = {
   title: 'T-MED',
@@ -19,6 +20,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
         <MainLayout>
           {children}
           <ToastContainer />
+          {/*<ScrollToTop />*/}
         </MainLayout>
       </Suspense>
     </NextIntlClientProvider>

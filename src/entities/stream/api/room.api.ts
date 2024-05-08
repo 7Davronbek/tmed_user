@@ -1,6 +1,4 @@
-// export const authToken: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiIyNjRiMWE4OS04MWRjLTQxYjktYjYzNC0zZDFjN2MxNmEyM2MiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTcxNDAzMTgzMCwiZXhwIjoxNzE2NjIzODMwfQ.oJFcMNNSUv06Aevy5hGw4mIViiV3wvHGWD1k2A9Goqc";
-
-export const authToken: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiJkNGIwNzQ1YS1iNjg0LTRmN2QtODExYy0wNGNhMzUzN2RjMGMiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTcxNDM3Mjc0NSwiZXhwIjoxNzE2OTY0NzQ1fQ.vFy_vVj8k3KdShsjrjGwNt9vMjUJus9Uc2DX9hY9uxQ";
+export const authToken: string = process.env.VIDEO_SDK_TOKEN!
 
 export const createMeeting = async ({ token }: { token: string }) => {
     try {

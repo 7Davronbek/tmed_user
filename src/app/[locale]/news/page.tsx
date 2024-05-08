@@ -1,6 +1,5 @@
 import { NewsLayout } from '@/widgets/layout'
 import { useTranslations } from 'next-intl'
-import {NewsCard} from "@/entities";
 import {NewsCardFeature} from "@/features";
 
 const NewsPage = () => {

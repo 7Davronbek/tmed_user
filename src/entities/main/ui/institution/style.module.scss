@@ -1,6 +1,8 @@
 .institution {
   margin-bottom: 56px;
-  justify-content: space-between;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
 
   @media(max-width: 1200px) {
     flex-direction: column;

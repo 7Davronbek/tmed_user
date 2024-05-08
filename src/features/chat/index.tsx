@@ -36,7 +36,6 @@ const Chat = ({modal}: { modal: boolean }) => {
             </div>
             <ScrollToBottom className={sx.message}>
                 {messages.map(item => {
-                    console.log(item)
                     return (
                         <div className={sx.wrap} key={item.id}>
                             <div className={sx.imgWrap}>{item.senderName.substring(0, 1).toUpperCase()}</div>

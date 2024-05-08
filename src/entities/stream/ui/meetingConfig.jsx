@@ -20,6 +20,7 @@ export const MeetingConfig = ({onMeetingLeave, meetingId, modal, setModal}) => {
     });
 
     useEffect(() => {
+        window.scrollTo(0,0);
         const joinMeeting = () => {
             setJoined("JOINING");
             setTimeout(() => {

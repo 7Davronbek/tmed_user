@@ -11,4 +11,6 @@ export enum AppPathEnum {
   INFO = '/info',
   PROFILE = '/profile',
   STREAM = '/stream',
+  INSTITUTION = '/institution',
+  CLINIC_SERVICE = '/clinic-service'
 }

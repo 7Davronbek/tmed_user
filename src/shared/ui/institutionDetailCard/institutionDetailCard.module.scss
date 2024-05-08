@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    background-color: var(--twed-light-grey);
+    cursor: default;
+  }
+
+  @media(max-width: 1200px) {
+    max-width: 100%;
+  }
+}
