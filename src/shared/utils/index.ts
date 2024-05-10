@@ -1,4 +1,5 @@
 export * from './activeNavLink'
+export * from './fileUtils'
 export * from './sendFeedback'
 export * from './timeFormatter'
 export * from './scrollToTop'

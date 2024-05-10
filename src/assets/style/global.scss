@@ -23,6 +23,7 @@ body {
   font-family: var(--font);
   font-size: 16px;
   line-height: 20px;
+  overflow-x: hidden;
   //min-height: 100vh;
 }
 
@@ -50,7 +51,6 @@ body {
 }
 
 .mainLayout {
-  overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -178,4 +178,27 @@ h1, h2, h3, h4, h5, h6, p {
 
 .react-scroll-to-bottom--css-utjog-1tj0vk3 {
   display: none;
+}
+
+.errorMessage {
+  color: #E74C3C;
+  font-size: 12px;
+  font-weight: 400;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.input {
+  outline: none;
+  border: 1px solid #E5E9EC;
+  padding: 15px;
+  border-radius: 8px;
+
+  &.error {
+    border-color: #E74C3C;
+  }
 }

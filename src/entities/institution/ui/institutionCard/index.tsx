@@ -19,22 +19,21 @@ export const InstitutionCard = async () => {
     }, isLoading] = useUnit([$institutionList, fetchInstitutionInfinityListFx.pending])
 
     const handleNext = useCallback(() => {
-        getInstitutionInfinityListEv({limit: 10, offset: next_offset})
-    }, [next_offset])
+
+    }, [])
     return (
         <div>
-            {isLoading && <MiniLoader/>}
+            {/*{isLoading && <MiniLoader/>}*/}
             <InfiniteScroll
                 dataLength={next_offset}
-                style={{overflow: 'visible'}}
-                next={handleNext}
+                next={() => getInstitutionInfinityListEv({limit: 10, offset: next_offset})}
                 hasMore={!isLoading && !!next}
                 loader={<MiniLoader/>}
                 scrollableTarget="#institutionCard">
                 <Grid className={sx.institution} container>
                     {results && results.map((item) => {
                         return (
-                            <InstitutionDetailCard hasImage={true} institution={item}/>
+                            <InstitutionDetailCard key={item.id} hasImage={true} institution={item}/>
                         )
                     })}
                 </Grid>

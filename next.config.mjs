@@ -10,6 +10,7 @@ const nextConfig = {
     TWED_ROOM_TOKEN: process.env.TWED_ROOM_TOKEN,
     VITE_BASE_URL: process.env.VITE_BASE_URL,
     VIDEO_SDK_TOKEN: process.env.VIDEO_SDK_TOKEN,
+    VITE_ADMIN_URL: process.env.VITE_ADMIN_URL
   },
   images: {
     unoptimized: true,

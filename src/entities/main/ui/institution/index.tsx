@@ -1,3 +1,4 @@
+'use client'
 import {Grid} from '@mui/material'
 import {InstitutionDetailCard, MiniLoader} from '@/shared'
 import sx from './style.module.scss'

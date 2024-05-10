@@ -12,6 +12,13 @@ export type Manager = {
   staj?: string
 }
 
+export type TabPanelProps = {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+
 export type RootLayoutProps = {
   children: React.ReactNode;
   params: {

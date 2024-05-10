@@ -75,6 +75,7 @@
 .fullCard {
   display: flex;
   align-items: self-start;
+  position: relative;
 
   @media(max-width: 1200px) {
     max-width: 100%;
@@ -82,8 +83,10 @@
   }
 
   .image {
-    width: 300px !important;
+    width: 28% !important;
     height: auto;
+    position: sticky;
+    top: 10px;
 
     @media(max-width: 992px) {
       width: 100% !important;

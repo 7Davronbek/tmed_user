@@ -1,4 +1,6 @@
 export * from './button'
+export * from './tabPanel'
+export * from './input'
 export * from './loader'
 export * from './administrationsCard'
 export * from './managersCard'

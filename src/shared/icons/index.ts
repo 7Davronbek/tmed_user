@@ -13,6 +13,7 @@ import * as burger from './burger'
 import * as like from './like'
 import * as comment from './comment'
 import * as stream from './stream'
+import * as error from './error'
 
 export const Icon = {
   ...logo,
@@ -30,4 +31,5 @@ export const Icon = {
   ...like,
   ...comment,
   ...stream,
+  ...error,
 }

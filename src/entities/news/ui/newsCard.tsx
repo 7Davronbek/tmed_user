@@ -21,7 +21,6 @@ export const NewsCard = () => {
     const locale = useLocale()
     return (
         <div>
-            {isLoading && <MiniLoader/>}
             <InfiniteScroll
                 dataLength={next_offset}
                 style={{overflow: 'visible'}}
@@ -83,9 +82,7 @@ export const NewsCard = () => {
                                         izohni
                                         ko`ring</h5>
                                 }
-
                                 <h6>{formattedDate}</h6>
-
                             </div>
                         </div>
                     )

@@ -1,3 +1,4 @@
+'use client'
 import sx from '../style/style.module.scss'
 import vision from '@/assets/images/visionConnect.png'
 import Image from "next/image";
