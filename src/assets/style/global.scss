@@ -195,10 +195,31 @@ h1, h2, h3, h4, h5, h6, p {
 .input {
   outline: none;
   border: 1px solid #E5E9EC;
-  padding: 15px;
+  padding: 10px 15px;
   border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #000;
+  }
 
   &.error {
     border-color: #E74C3C;
+  }
+}
+
+.button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+
+    div {
+      cursor: not-allowed !important;
+    }
   }
 }

@@ -19,12 +19,7 @@ export const $administrationForm = createForm<AdminTypes>({
             init: {url: null},
             rules: [{
                 name: "image", errorText: "Image is required",
-                validator: function (value: {
-                    url: string | null;
-                    file?: File | undefined;
-                }, form?: any, source?: any): boolean | ValidationResult {
-                    throw new Error("Function not implemented.");
-                }
+                validator: value => Boolean(value.url)
             }]
         },
         phoneNumber: {
@@ -108,10 +103,10 @@ export const $administrationForm = createForm<AdminTypes>({
 export const createAdministrationFx = createEffect({handler: adminApi.createAdministration})
 
 sample({
+    // @ts-ignore
     clock: $administrationForm.formValidated,
     fn: (form) => {
         const formData = new FormData()
-        console.log(form)
         if (form.image) formData.append("file", form.image?.file!)
         if (form.email) formData.append("email", form.email)
         if (form.phoneNumber) formData.append("phoneNumber", form.phoneNumber)
@@ -131,19 +126,21 @@ sample({
         if (form.permission) formData.append("permission", form.permission)
         if (form.permissionRu) formData.append("permissionRu", form.permissionRu)
         if (form.permissionEn) formData.append("permissionEn", form.permissionEn)
-        return {data: formData}
+        return formData
     },
     target: createAdministrationFx
 })
 
-// export const createAdministrationFx = createEffect({handler: adminApi.createAdministration})
+sample({
+    // @ts-ignore
+    clock: createAdministrationFx.doneData,
+    target: $administrationForm.reset
+})
 
+// export const createAdministrationFx = createEffect({handler: adminApi.createAdministration})
+//
 // forward({
 //     from: $administrationForm.formValidated,
 //     to: createAdministrationFx,
 // })
 //
-// sample({
-//     clock: createAdministrationFx.doneData,
-//     target: $administrationForm.reset
-// })

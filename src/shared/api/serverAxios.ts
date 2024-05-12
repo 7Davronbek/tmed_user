@@ -5,6 +5,6 @@ export const httpServer = axios.create({
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'multipart/form-data',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIrOTk4OTQzNjk4MDU4IiwiaWF0IjoxNzE1MDczNjI5LCJleHAiOjE3MTU2Nzg0Mjl9.IworFKj4oTAnxDQv6swj-u_72oHSc4QKdnyZ20vxt_0'
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIrOTk4OTQzNjk4MDU4IiwiaWF0IjoxNzE1NDU1MzQ4LCJleHAiOjE3MTYwNjAxNDh9.TCDG5KJKrmmsWbY4yzWrUhuI9kFntJnp8KGAKBBBeag'
     }
 })
