@@ -22,11 +22,31 @@ export type ApiListType<D> = {
     searchText?: string
 }
 
+export type ApiAdminListType<D> = {
+    empty: boolean
+    first: boolean
+    last: boolean
+    number: number
+    numberOfElements: number
+    pageable: {
+        sort: { empty: boolean, sorted: boolean, unsorted: boolean },
+        offset: number
+        pageNumber: number
+        pageSize: number
+        paged: boolean
+    }
+    size: number
+    sort: { empty: boolean, sorted: boolean, unsorted: boolean }
+    totalElements: number
+    totalPages: number
+    content: D[]
+}
+
 export type QueryParamsType = {
     limit?: number
     offset?: number
     producttoorder__responsible?: string
-    org_slug?: string
+    lang?: string
     username?: string
     search?: string
     ordering?: string
@@ -34,6 +54,8 @@ export type QueryParamsType = {
     infinite?: boolean
     group_id?: string
     ucat?: string
+    size?: number
+    page?: number
 }
 
 export type ApiListById = {

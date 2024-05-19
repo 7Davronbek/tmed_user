@@ -1,4 +1,5 @@
 export type AdminTypes = {
+    id?: string,
     image: { url: string | null; file?: File },
     email: string,
     phoneNumber: string,

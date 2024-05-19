@@ -30,7 +30,7 @@ export type NewsType = {
     author_job: string,
     author_name: string,
     author_lastname: string,
-    author_org: string
+    author_org: string,
 }
 
 export type Repost = {

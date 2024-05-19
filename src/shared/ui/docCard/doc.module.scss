@@ -1,0 +1,57 @@
+.card {
+    background-color: var(--twed-light-grey);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 8px;
+    border-radius: 8px;
+  
+    .btn {
+      padding: 0 5px;
+    }
+  
+    .mobileDownload {
+      padding: 12px 12px;
+      cursor: pointer;
+      border: 1.5px solid var(--twed-success);
+      border-radius: 8px;
+      display: none;
+      align-items: center;
+  
+      span  {
+        margin-left: 8px;
+      }
+  
+      @media(max-width: 992px) {
+        display: flex;
+      }
+    }
+  
+    .wrap {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+  
+      span {
+        margin-left: 16px;
+        text-decoration: underline;
+      }
+    }
+  
+    .download {
+        display: flex;
+        align-items: center;
+  
+      @media(max-width: 992px) {
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+  
+    @media(max-width: 992px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 12px;
+    }
+  }

@@ -55,3 +55,36 @@
     gap: 12px;
   }
 }
+.docsLayout {
+
+  .wrap {
+    background-color: var(--twed-light-grey);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .myBtn {
+      padding: 4px;
+      border-radius: 8px;
+      color: #000;
+      transition: none;
+      margin-right: 5px;
+
+      &:hover, &.active {
+        background: var(--gradient-bg);
+        color: #fff;
+      }
+    }
+
+  }
+
+  h1 {
+    margin-bottom: 24px !important;
+  }
+
+  @media(max-width: 992px) {
+    overflow-x: auto;
+  }
+}

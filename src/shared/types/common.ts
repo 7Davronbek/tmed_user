@@ -2,6 +2,7 @@ import { StaticImageData } from 'next/image'
 import React from 'react'
 
 export type Manager = {
+  id?: string,
   image: string | StaticImageData,
   name: string,
   phoneNumber: string,
