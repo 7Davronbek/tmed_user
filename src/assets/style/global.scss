@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 :root {
-  --font: 'Inter', sans-serif;
+  --font: "Inter", sans-serif;
   --common-bg-color: #ffffff;
   --twed-dark: #222222;
-  --twed-light-dark: #7F92A0;
-  --twed-grey: #2B3031;
-  --twed-light-grey: #F3F5F9;
-  --twed-success: #00C1C1;
-  --twed-danger: #FA193E;
+  --twed-light-dark: #7f92a0;
+  --twed-grey: #2b3031;
+  --twed-light-grey: #f3f5f9;
+  --twed-success: #00c1c1;
+  --twed-danger: #fa193e;
   --twed-warning: #fd9644;
-  --twed-blue: #10338C;
-  --twed-border: #E8EAEC;
+  --twed-blue: #10338c;
+  --twed-border: #e8eaec;
   --margin-bottom: 24px;
   --margin-left: 16px;
-  --gradient-bg: linear-gradient(45deg, #10338C 0%, #00C1C1 100%)
+  --gradient-bg: linear-gradient(45deg, #10338c 0%, #00c1c1 100%);
 }
 
 body {
@@ -27,13 +27,12 @@ body {
   //min-height: 100vh;
 }
 
-
 .primary-gradient-bg {
-  background: linear-gradient(180deg, #10338C 0%, #00C1C1 100%);
+  background: linear-gradient(180deg, #10338c 0%, #00c1c1 100%);
 }
 
 .primary-text-gradient {
-  background: linear-gradient(180deg, #10338C 0%, #00C1C1 100%);
+  background: linear-gradient(180deg, #10338c 0%, #00c1c1 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -44,7 +43,7 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
 
-  @media(max-width: 1200px) {
+  @media (max-width: 1200px) {
     width: 100%;
     padding: 0 12px;
   }
@@ -58,7 +57,7 @@ body {
 
 a {
   text-decoration: none;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   color: #222;
 }
 
@@ -73,13 +72,19 @@ img {
   color: var(--twed-grey);
   font-weight: 700;
 
-  @media(max-width: 992px) {
+  @media (max-width: 992px) {
     font-size: 20px;
     line-height: 24px;
   }
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0 !important;
 }
 
@@ -105,17 +110,18 @@ h1, h2, h3, h4, h5, h6, p {
 .headerSwiper {
   overflow: visible !important;
 
-  .swiper-button-next, .swiper-button-prev {
+  .swiper-button-next,
+  .swiper-button-prev {
     display: none;
   }
 
   .swiper-pagination {
     bottom: -23px !important;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   .swiper-pagination-bullet {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background: var(--gradient-bg);
 
     &.swiper-pagination-bullet-active {
@@ -143,9 +149,8 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .newsSwiper {
-
   .swiper-pagination-bullet {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background: var(--gradient-bg);
 
     &.swiper-pagination-bullet-active {
@@ -155,12 +160,13 @@ h1, h2, h3, h4, h5, h6, p {
     }
   }
 
-  .swiper-button-next, .swiper-button-prev {
+  .swiper-button-next,
+  .swiper-button-prev {
     background: rgba(255, 255, 255, 0.82);
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    transition: all .1s ease-in-out;
+    transition: all 0.1s ease-in-out;
 
     &::after {
       font-size: 14px;
@@ -181,7 +187,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .errorMessage {
-  color: #E74C3C;
+  color: #e74c3c;
   font-size: 12px;
   font-weight: 400;
 
@@ -194,7 +200,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .input {
   outline: none;
-  border: 1px solid #E5E9EC;
+  border: 1px solid #e5e9ec;
   padding: 10px 15px;
   border-radius: 8px;
   width: 100%;
@@ -205,7 +211,7 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
   &.error {
-    border-color: #E74C3C;
+    border-color: #e74c3c;
   }
 }
 
@@ -214,6 +220,7 @@ h1, h2, h3, h4, h5, h6, p {
   outline: none;
   border: none;
   padding: 0;
+  cursor: pointer;
 
   div {
     font-family: var(--font);
@@ -233,4 +240,10 @@ h1, h2, h3, h4, h5, h6, p {
   min-height: 200px;
   max-height: 300px;
   overflow: auto;
+}
+
+.MuiPaper-elevation {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }

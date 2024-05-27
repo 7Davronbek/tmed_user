@@ -12,5 +12,9 @@ export enum AppPathEnum {
   PROFILE = '/profile',
   STREAM = '/stream',
   INSTITUTION = '/institution',
-  CLINIC_SERVICE = '/clinic-service'
+  CLINIC_SERVICE = '/clinic-service',
+  ADMIN = '/admin',
+  DASHBOARD = '/dashboard',
+  ABOUTUS = '/about-us',
+  DOC = '/doc',
 }

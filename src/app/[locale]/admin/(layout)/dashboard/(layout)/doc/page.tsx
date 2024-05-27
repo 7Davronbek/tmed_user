@@ -3,7 +3,6 @@ import { BaseButton, DocCard, Icon, NoData } from "@/shared";
 import sx from "../style/main.module.scss";
 import {
   $docList,
-  $lang,
   DocModal,
   DocType,
   LawType,
@@ -93,6 +92,7 @@ export default function DocPage() {
               key={item.id}
               id={item.id}
               deleteDoc={() => handleDelete(String(item.id))}
+              updateDoc={() => handleEdit(String(item.id))}
               link={item.link}
               name={item.name}
               lawType={item.lawType}

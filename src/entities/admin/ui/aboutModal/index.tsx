@@ -3,7 +3,12 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import React, { FormEvent } from "react";
 import { a11yProps, BaseButton, CustomTabPanel, Icon } from "@/shared";
-import { $aboutForm, fetchAboutListFx, toggleAboutModalEv } from "@/entities";
+import {
+  $aboutForm,
+  $lang,
+  fetchAboutListFx,
+  toggleAboutModalEv,
+} from "@/entities";
 import { $aboutModal } from "@/entities";
 import { useForm } from "effector-forms";
 import { useUnit } from "effector-react";
@@ -89,7 +94,7 @@ export const AboutModal = () => {
             </CustomTabPanel>
             <button
               className={"button"}
-                disabled={!eachValid && !isLoading}
+              disabled={!eachValid && !isLoading}
               type={"submit"}
             >
               <BaseButton active={true} text={"Save"} />

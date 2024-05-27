@@ -3,6 +3,7 @@ import sx from '@/widgets/layout/ui/main/style/main.module.scss'
 import {Icon} from '@/shared'
 import {useRouter, usePathname} from 'next/navigation'
 import {useLocale} from 'next-intl'
+import { changeLanguageEv } from '@/entities'
 
 export const NavbarSelect = () => {
     const router = useRouter()
@@ -11,6 +12,7 @@ export const NavbarSelect = () => {
     const handleChange = (e: string) => {
         const lang = e + pathname.substring(3)
         router.replace(`/${lang}`)
+        changeLanguageEv(e)
     }
     return (
         <div className={sx.wrap}>

@@ -15,6 +15,7 @@ export const NewsCard = () => {
     $newsList,
     fetchInfiniteNewsFx.pending,
   ]);
+    console.log(results)
   const locale = useLocale();
   return (
     <div>

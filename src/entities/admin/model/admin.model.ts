@@ -1,8 +1,12 @@
 import { createForm } from "effector-forms";
 import { AdminEnum, AdminTypes } from "@/entities";
 import { adminApi } from "@/entities/admin/api";
-import { createEffect, createEvent, createStore, sample } from "effector";
+import { Store, createEffect, createEvent, createStore, sample } from "effector";
 import Cookies from "js-cookie";
+import { createBrowserHistory } from "history";
+import { AppPathEnum } from "@/shared";
+
+export const customHistory = createBrowserHistory();
 
 // FORM
 export const $administrationForm = createForm<AdminTypes>({
@@ -158,11 +162,10 @@ export const getInfiniteAdministrationEv = createEvent();
 export const getAdministrationEv = createEvent<string>("");
 export const toggleAdministrationModalEv = createEvent();
 export const deleteAdministrationEv = createEvent<string>("");
+export const changeLanguageEv = createEvent<string>();
 
 // STORE
-export const $lang = createStore<string | null>(
-  Cookies.get("NEXT_LOCALE") || null
-);
+export const $lang = createStore<string>(Cookies.get("NEXT_LOCALE") || "uz");
 export const $administrationModal = createStore<boolean>(false);
 export const $administrationList = createStore<AdminTypes[] | []>([]);
 export const $administrationDetail = createStore<AdminTypes | null>(null);
@@ -172,20 +175,18 @@ $administrationList.on(
   fetchInfinityAdministrationFx.doneData,
   (_, { data }: any) => data
 );
+$lang.on(changeLanguageEv, (_, payload) => payload);
 
 $administrationDetail.on(fetchAdministrationFx.doneData, (_, { data }) => data);
-// $administrationList
-//     .on(fetchInfinityAdministrationFx.doneData, (state, {params, result: {data}}) => {
-//         return {...state, ...data, results: params.offset ? [...state.results, ...data.results] : data.results}
-//     })
 
 $administrationModal.on(toggleAdministrationModalEv, (state) => !state);
 
 // SAMPLE
 sample({
-  clock: getInfiniteAdministrationEv,
+  clock: [getInfiniteAdministrationEv, changeLanguageEv],
   source: $lang,
-  filter: (src) => !!src,
+  filter: (src) =>
+    !!src ,
   fn: (src) => ({ lang: src! }),
   target: fetchInfinityAdministrationFx,
 });
@@ -200,11 +201,6 @@ sample({
   clock: deleteAdministrationFx.done,
   target: getInfiniteAdministrationEv,
 });
-
-// sample({
-//     clock: [$lang],
-//     target: getInfiniteAdministrationEv
-// })
 
 sample({
   clock: $administrationForm.formValidated,

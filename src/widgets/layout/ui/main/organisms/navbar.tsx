@@ -93,7 +93,7 @@ export const Navbar = () => {
         </div>
       </Grid>
       <Grid className={sx.profile} item xs={0.6}>
-        <Link href={`/${local}${AppPathEnum.HOME}`}>
+        <Link href={`/${local}${AppPathEnum.ADMIN}`}>
           <BaseButton
             active={true}
             icon={

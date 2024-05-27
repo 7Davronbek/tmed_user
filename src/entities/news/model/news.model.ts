@@ -1,7 +1,8 @@
 import {createEffect, createEvent, createStore, sample} from "effector";
 import {CommentType, NewsType} from "../types";
-import {apiListDefaultData, ApiListType, QueryParamsType} from "@/shared";
+import { ApiListType, QueryParamsType} from "@/shared";
 import {newsApi} from "../api";
+import { apiListDefaultData } from "@/shared/data/api";
 
 // EFFECT
 export const fetchInfiniteNewsFx = createEffect({handler: newsApi.fetchNewsList})

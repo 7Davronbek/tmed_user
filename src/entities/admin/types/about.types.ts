@@ -4,8 +4,3 @@ export type AboutType = {
   descriptionRu: string;
   descriptionEn: string;
 };
-
-export const enum ISCREATE {
-  CREATE = "CREATE",
-  UPDATE = "UPDATE",
-}

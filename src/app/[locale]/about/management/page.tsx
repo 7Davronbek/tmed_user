@@ -1,17 +1,59 @@
+'use client'
 import { AboutLayout } from '@/widgets/layout/ui'
-import { ManagersCard } from '@/shared'
+import { ManagersCard, NoData } from '@/shared'
 import raxbar from '@/assets/images/raxbar.jpg'
 import raxbar2 from '@/assets/images/raxbar2.jpg'
 import { Grid } from '@mui/material'
 import { useTranslations } from 'next-intl'
+import { useUnit } from 'effector-react'
+import { $administrationDetail, $administrationList, AdminEnum, AdminTypes, fetchInfinityAdministrationFx, getInfiniteAdministrationEv } from '@/entities'
+import { useEffect, useState } from 'react'
 
 const ManagementPage = () => {
   const t = useTranslations('Main')
+
+  const [results, isLoading] = useUnit([
+    $administrationList,
+    fetchInfinityAdministrationFx.pending,
+    $administrationDetail,
+  ]);
+  const [data, setData] = useState<AdminTypes[]>([]);
+
+  const [activeBtn, setActiveBtn] = useState<AdminEnum>(
+    AdminEnum.LEADERSHIP
+  );
+
+  useEffect(() => {
+    getInfiniteAdministrationEv();
+  }, []);
+
+  useEffect(() => {
+    const newData = results.filter(
+      (item) => item.administrationType === activeBtn
+    );
+    setData(newData);
+  }, [results, activeBtn]);
   return (
     <AboutLayout title={t('management')}>
-      <Grid container>
+      <Grid style={{flexDirection: 'column'}} gap={3} container>
+        
+      {data.length > 0 &&
+          !isLoading &&
+          data.map((item) => (
+            <ManagersCard
+              key={item.id}
+              image={String(item.image)}
+              name={item.fullName}
+              phoneNumber={item.phoneNumber}
+              email={item.email}
+              admissionDay={item.receptionDay}
+              staj={item.jobDescription}
+              permission={item.permission}
+              jobTitle={item.role}
+            />
+          ))}
 
-        <ManagersCard image={raxbar} name={'MAMASIDIKOV MUXSINJON MUSAJONOVICH'} phoneNumber={'+998 71 299-98-27'}
+        {/* <ManagersCard image={raxbar} name={'MAMASIDIKOV MUXSINJON MUSAJONOVICH'} phoneNumber={'+998 71 299-98-27'}
                       email={'nvs@railway.uz'}
                       admissionDay={'Dushanbadan Jumagacha \n' +
                         '16:00 dan 18:00 gacha'}
@@ -51,9 +93,11 @@ const ManagementPage = () => {
                   '2012-2015 yy. - "O\'zbekiston temir yo\'llari" AJ Markaziy klinik kasalxonasi urolog shifokori\n' +
                   '2015-2016 yy. - "O\'zbekiston temir yo\'llari" AJ temir yo\'l qon quyish stansiyasi bosh shifokori\n' +
                   '2016 y. - h.v. - "O\'zbekiston temir yo\'llari" AJ Sog\'liqni saqlash xizmati boshlig\'i o\'rinbosari –davolash bo\'limi mudiri'}
-        />
+        /> */}
 
       </Grid>
+      
+      <NoData show={data.length === 0 || isLoading} loading={isLoading} />
     </AboutLayout>
   )
 }

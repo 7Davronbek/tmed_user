@@ -1,7 +1,8 @@
 import {createEffect} from "effector/effector.mjs";
 import {createEvent, createStore, sample} from "effector";
-import {apiListDefaultData, ApiListType, QueryParamsType} from "@/shared";
+import { ApiListType, QueryParamsType} from "@/shared";
 import {serviceApi, ServiceType} from "@/entities/clinic-services";
+import { apiListDefaultData } from "@/shared/data/api";
 
 export const fetchServiceInfinityFx = createEffect({handler: serviceApi.fetchServiceInfinityList})
 export const getServiceInfinityListEv = createEvent<QueryParamsType>()

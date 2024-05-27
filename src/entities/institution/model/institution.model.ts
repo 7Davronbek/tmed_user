@@ -1,7 +1,8 @@
-import {createEvent, createStore, sample} from "effector";
-import {apiListDefaultData, ApiListType, QueryParamsType} from "@/shared";
-import {institutionApi, InstitutionType} from "@/entities/institution";
-import {createEffect} from "effector/effector.mjs";
+import {createEvent, createStore, sample,createEffect} from "effector";
+import { InstitutionType } from "../types";
+import { institutionApi } from "../api";
+import { ApiListType,QueryParamsType } from "@/shared/api";
+import { apiListDefaultData } from "@/shared/data/api";
 
 export const fetchInstitutionInfinityListFx = createEffect({handler: institutionApi.fetchInstitutionList})
 export const getInstitutionInfinityListEv = createEvent<QueryParamsType>()

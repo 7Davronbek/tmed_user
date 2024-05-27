@@ -1,7 +1,5 @@
 'use client'
 import { AboutLayout } from "@/widgets/layout/ui";
-import Image from "next/image";
-import structure from "@/assets/images/tree.png";
 import { useTranslations } from "next-intl";
 import { NoData, StrucutreCard } from "@/shared";
 import { useEffect } from "react";
@@ -14,14 +12,15 @@ import { useUnit } from "effector-react";
 
 const StructurePage = () => {
   const t = useTranslations("AboutUs");
-  useEffect(() => {
-    getStructureListEv();
-  }, []);
 
   const [results, isLoading] = useUnit([
     $structureList,
     fetchStructureListFx.pending,
   ]);
+  
+  useEffect(() => {
+    getStructureListEv();
+  }, []);
   return (
     <AboutLayout title={t("structure")}>
       {results &&

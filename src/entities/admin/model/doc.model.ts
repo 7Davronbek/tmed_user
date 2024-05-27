@@ -2,7 +2,7 @@ import { createForm } from "effector-forms";
 import { DocType, LawType } from "../types";
 import { createEffect, createEvent, createStore, sample } from "effector";
 import { docApi } from "../api";
-import { $lang } from "./admin.model";
+import { $lang, changeLanguageEv } from "./admin.model";
 import { toast } from "react-toastify";
 
 export const $docsForm = createForm<DocType>({
@@ -49,7 +49,7 @@ export const $docsForm = createForm<DocType>({
         {
           name: "file",
           errorText: "File is required",
-          validator: (value) => Boolean(value.url),
+          validator: (value) => !!value?.url,
         },
       ],
     },
@@ -78,13 +78,12 @@ export const $docModal = createStore<boolean>(false);
 export const $docList = createStore<DocType[] | []>([]);
 
 // STORE MODIFYING
-// @ts-ignore
 $docList.on(fetchDocListFx.doneData, (_, { data }) => data);
 $docModal.on(toggleDocModalEv, (state) => !state);
 
 // SAMPLE
 sample({
-  clock: getDocsListEv,
+  clock: [getDocsListEv, changeLanguageEv],
   source: $lang,
   filter: (src) => !!src,
   fn: (src) => ({ lang: src! }),
@@ -100,8 +99,8 @@ sample({
 sample({
   // @ts-ignore
   clock: toggleDocModalEv,
-  target: $docsForm.reset
-})
+  target: $docsForm.reset,
+});
 
 sample({
   clock: $docsForm.formValidated,

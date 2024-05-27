@@ -2,7 +2,7 @@
 import {Grid} from '@mui/material'
 import {InstitutionDetailCard, MiniLoader} from '@/shared'
 import sx from './style.module.scss'
-import {$institutionList, fetchInstitutionInfinityListFx, getInstitutionInfinityListEv} from "@/entities";
+import {$institutionList, fetchInstitutionInfinityListFx, getInstitutionInfinityListEv} from "@/entities/institution";
 import {useUnit} from "effector-react";
 import {useEffect} from "react";
 

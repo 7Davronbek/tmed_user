@@ -81,7 +81,7 @@ const DashboardPage = () => {
       </div>
 
       <div className={sx.bottomWrap}>
-        {data.length > 0 &&
+        {data.length > 0 && !isLoading &&
           data.map((item) => (
             <ManagersCard
               key={item.id}

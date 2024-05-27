@@ -27,7 +27,9 @@ export const CommentModal = () => {
                         {data?.medias && data.medias.map((media) => (
                             <SwiperSlide key={media.id}>
                                 <Image
-                                    src={img}
+                                    src={media.image}
+                                    width={0}
+                                    height={0}
                                     alt={'Media'}/>
                             </SwiperSlide>
                         ))}
@@ -58,7 +60,7 @@ export const CommentModal = () => {
                     </div>
                     <div className={sx.bottom}>
                         <div className={sx.wrap}>
-                            <Icon.Like isWhite={true}/>
+                            <Icon.Like isWhite={false}/>
                         </div>
                         <h4>{data?.likes_count} Likes</h4>
                         <h6>{TimeFormatter.timeFormatterFn(String(data?.date), locale)}</h6>

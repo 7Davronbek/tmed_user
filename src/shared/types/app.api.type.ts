@@ -55,7 +55,7 @@ export type ApiObjSubj = {
 }
 
 export type ApiObjSubjBody<Data> = {
-    objectId: string
+    objectId?: string
     subjectId: string
     id?: string
     data: Data
