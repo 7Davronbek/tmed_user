@@ -38,7 +38,10 @@
     "webAds": "Advertising on the site",
     "paymentMethods": "Payment method",
     "allRightReserved": "All rights reserved.",
-    "mln": "mln"
+    "mln": "mln",
+    "receptionDays": "Reception days",
+    "experience": "Experience",
+    "jobResponsibilities": "Job responsibilities"
   },
   "AboutUs": {
     "aboutInstitution": "About the institution",

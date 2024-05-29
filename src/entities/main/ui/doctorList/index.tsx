@@ -4,6 +4,7 @@ import doctor from '@/assets/images/shifokor.png'
 import sx from './style.module.scss'
 
 export const DoctorList = () => {
+
   return (
     <div>
       <Grid className={sx.doctorList} container justifyContent={'space-between'}>
@@ -11,7 +12,7 @@ export const DoctorList = () => {
           <div className={sx.cards}>
             <Image
               src={doctor}
-              alt="T MED"
+              alt="T MED Client Doctors"
             />
             <div className={sx.wrap}>
               <p className={sx.name}>Kabuljonov Muhammadilyos</p>
@@ -25,7 +26,7 @@ export const DoctorList = () => {
           <div className={sx.cards}>
             <Image
               src={doctor}
-              alt="T MED"
+              alt="T MED Client Doctors"
             />
             <div className={sx.wrap}>
               <p className={sx.name}>Kabuljonov Muhammadilyos</p>
@@ -39,7 +40,7 @@ export const DoctorList = () => {
           <div className={sx.cards}>
             <Image
               src={doctor}
-              alt="T MED"
+              alt="T MED Client Doctors"
             />
             <div className={sx.wrap}>
               <p className={sx.name}>Kabuljonov Muhammadilyos</p>

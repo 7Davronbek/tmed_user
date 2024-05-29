@@ -14,18 +14,18 @@ export function StrucutreCard({
 }: StructureProps) {
   return (
     <div key={id}>
+    {handleDelete && (
+      <button style={{display: 'block', marginLeft: 'auto'}} className="button" onClick={() => handleDelete()}>
+        <Icon.DeleteIcon />
+      </button>
+    )}
       <Image
         src={String(image)}
-        alt="T MED Struktura"
+        alt="T MED Client Struktura"
         width={0}
         height={0}
         style={{ width: "100%", height: "auto" }}
       />
-      {handleDelete && (
-        <button onClick={() => handleDelete()}>
-          <Icon.DeleteIcon />
-        </button>
-      )}
     </div>
   );
 }

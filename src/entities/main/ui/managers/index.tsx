@@ -1,29 +1,58 @@
 import { Grid } from '@mui/material'
-import raxbar from '@/assets/images/raxbar.jpg'
-import raxbar2 from '@/assets/images/raxbar2.jpg'
-import { AdministrationsCard } from '@/shared'
+import { AdministrationsCard, MiniLoader } from '@/shared'
 import sx from './style.module.scss'
 import { useTranslations } from 'next-intl'
+import { useUnit } from 'effector-react'
+import { $administrationDetail, $administrationList, AdminEnum, AdminTypes, fetchInfinityAdministrationFx, getInfiniteAdministrationEv } from '@/entities/admin'
+import { useEffect, useState } from 'react'
 
 export const Managers = () => {
   const t = useTranslations('Main')
+
+  const [results, isLoading] = useUnit([
+    $administrationList,
+    fetchInfinityAdministrationFx.pending,
+    $administrationDetail,
+  ]);
+  const [data, setData] = useState<AdminTypes[]>([]);
+
+  const [activeBtn, setActiveBtn] = useState<AdminEnum>(
+    AdminEnum.LEADERSHIP
+  );
+
+  useEffect(() => {
+    getInfiniteAdministrationEv();
+  }, []);
+
+  useEffect(() => {
+    const newData = results.filter(
+      (item) => item.administrationType === activeBtn
+    );
+    setData(newData);
+  }, [results, activeBtn]);
   return (
     <div className={sx.managers}>
       <h1 className={'title'}>{t('management')}</h1>
 
       <Grid marginTop={4} className={sx.gridWrap} container>
 
-        <AdministrationsCard email={'nvs@railway.uz'} image={raxbar} name={'MAMASIDIKOV MUXSINJON MUSAJONOVICH'}
-                             phoneNumber={'+998 71 299-98-27'}
-                             admissionDay={'Dushanbadan Jumagacha \n' +
-                               '16:00 dan 18:00 gacha'}
-                             jobTitle={'Sog\'liqni saqlash xizmati boshlig\'i'}
-        />
-        <AdministrationsCard email={'nvs26@mail.ru'} image={raxbar2} name={'SHAYUNUSOV BUNYOD SOLIYEVICH'} phoneNumber={'+998 71 299-75-45'}
-                             admissionDay={'Dushanbadan Jumagacha \n' +
-                               '16:00 dan 18:00 gacha'}
-                             jobTitle={'Xizmat boshlig\'i o\'rinbosari - davolash bo\'limi mudiri'}
-        />
+      {data.length > 0 &&
+          !isLoading &&
+          data.map((item) => (
+            <AdministrationsCard
+              key={item.id}
+              image={String(item.image)}
+              name={item.fullName}
+              phoneNumber={item.phoneNumber}
+              email={item.email}
+              admissionDay={item.receptionDay}
+              staj={item.jobDescription}
+              permission={item.permission}
+              jobTitle={item.role}
+            />
+          ))}
+
+          {isLoading && <MiniLoader />}
 
       </Grid>
     </div>

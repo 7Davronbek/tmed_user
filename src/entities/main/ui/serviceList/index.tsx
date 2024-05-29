@@ -16,7 +16,7 @@ export const ServiceList = () => {
         <div>
             {isLoading && <MiniLoader/>}
             <Grid className={sx.serviceList} container spacing={2}>
-                {results && results.map(item => (
+                {results && !isLoading && results.map(item => (
                     <ClinicServiceCardDetail key={item.id} service={item}/>
                 ))}
             </Grid>

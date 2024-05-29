@@ -30,10 +30,10 @@ export const NewsSingleCard: FC<NewsProps> = ({item, locale}) => {
                         src={
                             item.author_avatar
                         }
-                        alt={"Avatar"}
+                        alt={"T-MED Client Avatar"}
                     />
                 ) : (
-                    <Image width={0} height={0} src={avatar} alt={"Avatar"}/>
+                    <Image width={0} height={0} src={avatar} alt={"T-MED Client Avatar"}/>
                 )}
             </div>
             <div>
@@ -54,7 +54,7 @@ export const NewsSingleCard: FC<NewsProps> = ({item, locale}) => {
                 {item.medias &&
                     item.medias.map((media) => (
                         <SwiperSlide key={media.id}>
-                            <Image width={110} height={110} src={media.image} alt={"Media"}/>{" "}
+                            <Image width={110} height={110} src={media.image} alt={"T-MED Client Lenta"}/>{" "}
                         </SwiperSlide>
                     ))}
             </Swiper>

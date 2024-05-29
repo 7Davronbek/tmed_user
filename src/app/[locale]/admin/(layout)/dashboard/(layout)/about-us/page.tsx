@@ -52,9 +52,9 @@ const AboutUsPage = () => {
                     <div style={{display: "flex", justifyContent: 'space-between', marginTop: '20px'}} key={item.id}>
                         <p>{parse(String(item.description))}</p>
                         <div style={{display: 'flex', gap: '8px'}}>
-                            <button className={'button'} onClick={() => handleEdit(String(item.id))}>
+                            {/* <button className={'button'} onClick={() => handleEdit(String(item.id))}>
                                 <Icon.EditIcon/>
-                            </button>
+                            </button> */}
                             <button className={'button'} onClick={() => handleDelete(String(item.id))}>
                                 <Icon.DeleteIcon/>
                             </button>

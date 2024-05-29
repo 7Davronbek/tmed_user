@@ -247,3 +247,10 @@ p {
   border: none !important;
   box-shadow: none !important;
 }
+
+.css-1086bdv-MuiPaper-root-MuiAccordion-root {
+
+  &::before {
+    display: none;
+  }
+}

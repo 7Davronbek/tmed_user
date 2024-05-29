@@ -30,7 +30,7 @@ export default function Home() {
                     <p className={'title'}>
                         <Image
                             src={railwayLogo}
-                            alt="T MED"
+                            alt="T MED Client Institution"
                         />
                         {t('institution')}
                     </p>

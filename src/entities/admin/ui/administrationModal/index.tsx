@@ -56,7 +56,7 @@ export const AdministrationModal = () => {
                             autoFocus={fields.phoneNumber.errorText().length > 0}
                             className={`input ${fields.phoneNumber.errorText() ? 'error' : ''}`}
                             placeholder={'Phone number'}
-                            type={'text'}
+                            type={'number'}
                         />
                         <h5 className="errorMessage">{fields.phoneNumber.errorText() &&
                             <span><Icon.ErrorIcon/> {fields.phoneNumber.errorText()}</span>}</h5>
@@ -69,7 +69,7 @@ export const AdministrationModal = () => {
 
                         <input className='' accept='image/*, image/png' onChange={onChange} type='file'/>
                         {fields.image.value.url ? (
-                            <Image alt={'lorem'} width={160} height={160} src={fields.image.value.url}/>
+                            <Image alt={'T-MED Client'} width={160} height={160} src={fields.image.value.url}/>
                         ) : (
                             <div>No Image</div>
                         )}

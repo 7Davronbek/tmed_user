@@ -1,12 +1,12 @@
 'use client'
-import { AboutLayout } from '@/widgets/layout/ui'
 import { AboutCompany } from '@/entities'
 import { useTranslations } from 'next-intl'
+import AboutLayout from "@/widgets/layout/ui/about";
 
-const AboutPage = () => {
+const AboutPage = async () => {
   const t = useTranslations('AboutUs')
   return (
-    <div    >
+    <div>
         <AboutLayout title={t('aboutInstitution')}>
           <AboutCompany />
         </AboutLayout>

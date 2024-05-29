@@ -29,7 +29,7 @@ const DashboardTemplate: FC<PropsWithChildren> = ({ children }) => {
             <Link href={`/${locale}/admin/dashboard/doc`}>Docs</Link>
             <Link href={`/${locale}/admin/dashboard/about-us`}>About Us</Link>
             <Link href={`/${locale}/admin/dashboard/structure`}>Structure</Link>
-            <button onClick={logout}>LOGOUT</button>
+            <button className="button" style={{display: 'block', marginLeft: 'auto', border: '1px solid silver', padding: '10px', borderRadius: '10px'}} onClick={logout}>LOGOUT</button>
           </div>
           <div className={sx.right}>{children}</div>
         </div>

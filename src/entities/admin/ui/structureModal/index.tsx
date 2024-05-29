@@ -52,7 +52,7 @@ export const StructureModal = () => {
             />
             {fields.file.value.url ? (
               <Image
-                alt={"lorem"}
+                alt={"T-MED Client"}
                 width={160}
                 height={160}
                 src={fields.file.value.url}

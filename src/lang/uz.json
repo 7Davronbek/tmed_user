@@ -38,7 +38,10 @@
     "webAds": "Saytda reklama",
     "paymentMethods": "To'lov usuli",
     "allRightReserved": "Barcha huquqlar himoyalangan.",
-    "mln": "mln"
+    "mln": "mln",
+    "receptionDays": "Qabul kunlari",
+    "experience": "Mehnat faoliyati",
+    "jobResponsibilities": "Lavozim majburiyatlari"
   },
   "AboutUs": {
     "aboutInstitution": "Muassasa haqida",

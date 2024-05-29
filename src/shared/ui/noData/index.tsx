@@ -25,7 +25,7 @@ export const NoData: FC<Props> = ({ show = true, loading }) => {
             <MiniLoader />
           ) : (
             <>
-              <Image src={noData} alt="" width={200} height={200} />
+              <Image src={noData} alt="T-MED Client" width={200} height={200} />
             </>
           )}
         </Box>

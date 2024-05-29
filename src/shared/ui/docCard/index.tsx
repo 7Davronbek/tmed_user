@@ -42,11 +42,11 @@ export function DocCard({
                 </a>
 
                 <div style={{display: 'flex', gap: '8px'}}>
-                    {updateDoc && (
+                    {/* {updateDoc && (
                         <button className={'button'} onClick={() => updateDoc(String(id))}>
                             <Icon.EditIcon/>
                         </button>
-                    )}
+                    )} */}
                     {deleteDoc && (
                         <button className={'button'} onClick={() => deleteDoc(String(id))}>
                             <Icon.DeleteIcon/>

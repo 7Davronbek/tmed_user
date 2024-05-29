@@ -38,7 +38,10 @@
     "webAds": "Реклама на сайте",
     "paymentMethods": "Способ оплаты",
     "allRightReserved": "все права защищены.",
-    "mln": "млн"
+    "mln": "млн",
+    "receptionDays": "Приемные дни",
+    "experience": "Опыт работы",
+    "jobResponsibilities": "Рабочие обязанности"
   },
   "AboutUs": {
     "aboutInstitution": "О заведении",
