@@ -1,5 +1,3 @@
-"use client";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -10,12 +8,11 @@ import { useLocale } from "next-intl";
 import { useUnit } from "effector-react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export const NewsCard = () => {
+export default function NewsCard () {
   const [{ results, next, next_offset }, isLoading] = useUnit([
     $newsList,
     fetchInfiniteNewsFx.pending,
   ]);
-    console.log(results)
   const locale = useLocale();
   return (
     <div>

@@ -1,14 +1,13 @@
 import sx from '../style/main.module.scss'
-import {$commentModal, $commentsList, $news, fetchInfiniteCommentsFx, getCommentIdEv, modalToggleEv} from "@/entities";
+import {$commentModal, $commentsList, $news, fetchInfiniteCommentsFx, modalToggleEv} from "@/entities";
 import {useUnit} from "effector-react/effector-react.mjs";
 import {Icon, MiniLoader, TimeFormatter} from "@/shared";
 import Image from "next/image";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation, Pagination} from "swiper/modules";
-import img from "@/assets/images/banner4.png";
 import {useLocale} from "next-intl";
 
-export const CommentModal = () => {
+export default async function CommentModal() {
     const [{results}, isOpen, isLoading, data] = useUnit([$commentsList, $commentModal, fetchInfiniteCommentsFx.pending, $news])
     const locale = useLocale()
     return (

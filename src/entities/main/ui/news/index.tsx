@@ -1,15 +1,14 @@
 "use client";
-
 import { useEffect } from "react";
 import {
   $newsList,
-  CommentModal,
   fetchInfiniteNewsFx,
   getInfiniteNewsEv,
 } from "@/entities";
 import { useUnit } from "effector-react";
 import { MiniLoader, NewsSingleCard } from "@/shared";
 import { useLocale } from "next-intl";
+import CommentModal from "@/entities/news/ui/commentModal";
 
 export const News = () => {
   useEffect(() => {

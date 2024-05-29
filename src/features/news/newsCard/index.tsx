@@ -1,8 +1,10 @@
 'use client'
-import {CommentModal, getInfiniteNewsEv, NewsCard,} from "@/entities";
+import CommentModal from "@/entities/news/ui/commentModal";
+import NewsCard from "@/entities/news/ui/newsCard";
 import {useEffect} from "react";
+import {getInfiniteNewsEv} from "@/entities";
 
-export const NewsCardFeature = () => {
+export async function NewsCardFeature() {
     useEffect(() => {
         getInfiniteNewsEv({limit: 20, offset: 0})
     }, []);

@@ -1,9 +1,7 @@
+'use client'
 import {
-  AppPathEnum,
   BaseButton,
   DocCard,
-  Icon,
-  NavLink,
   NoData,
 } from "@/shared";
 import sx from "../style/docs.module.scss";
