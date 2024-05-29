@@ -3,10 +3,10 @@ import {Loader, RootLayoutProps} from '@/shared'
 import {NextIntlClientProvider} from 'next-intl'
 import {getMessages} from 'next-intl/server'
 import {ToastContainer} from 'react-toastify';
-import Head from 'next/head';
 import MainLayout from "@/widgets/layout/ui/main";
+import {Metadata} from "next";
 
-export const metadata = {
+export const metadata:Metadata = {
     title: 'T-MED Client',
     description: "Muassasa haqida. 1899 yilda Kaspiy orti va Markaziy Osiyo yo'llari bir-biriga Markaziy Osiyo nomi bilan qo'shilib, uning tarkibida mavjud tibbiyot muassasalarini boshqarish va yo'l qurilishini nazorat qilish funktsiyalari mavjud bo'lgan tibbiy qism tashkil etildi. Shu vaqtga kelib, tibbiyot muassasalari paramedik-akusherlik punktlari (PAP), paramedik punktlar, tibbiy joylar, shuningdek, Buxoro stantsiyasida 10 o'ringa mo'ljallangan shifoxona tashkil etilgan.\n" +
         "Ushbu bosqichda yangi qurilayotgan yo'l uchastkalarida ambulator yordamning birlamchi bo'g'inini tashkil etish davom ettirildi, malakali ambulatoriya yordami yaratildi, yangi yordam rejimlari joriy etildi (otolaringologiya, jarrohlik, nevrologik, laboratoriya). Toshkent, Ashxobod, Qarshi, Charjou, Krasnovodsk, Samarqand, Chernyayevo, Kizilarvat stantsiyalarida shifoxona bo'limlari dastlab umumiy, so'ngra maxsus (terapiya, jarrohlik, infeksiya, tug'ruqxona) tashkil etildi. 1918-yilda 185 ta koyka, 1940-yilda 1306 ta, 1950-yilda 1890 ta, 1968-yilga kelib esa 3000 dan ziyod koykalar qo'yib bo'lingan edi. 1929 yilda poliklinika, sog'liqni saqlash markazlari qayta tashkil etildi. Poliklinikalarda yuqori sifatli profilaktika tekshiruvlarini ta'minlaydigan tor mutaxassisliklar shifokorlarining shtatdagi lavozimi joriy etildi.\n" +
