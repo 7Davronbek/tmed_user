@@ -41,7 +41,10 @@
     "mln": "mln",
     "receptionDays": "Qabul kunlari",
     "experience": "Mehnat faoliyati",
-    "jobResponsibilities": "Lavozim majburiyatlari"
+    "jobResponsibilities": "Lavozim majburiyatlari",
+    "username": "Foydalanuvchi nomi",
+    "joinToVc": "VC konferentsiyasiga qo'shilish",
+    "streamingChat": "Chat"
   },
   "AboutUs": {
     "aboutInstitution": "Muassasa haqida",

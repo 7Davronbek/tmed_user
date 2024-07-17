@@ -7,6 +7,7 @@ import {MeetingProvider} from "@videosdk.live/react-sdk";
 import {MeetingConfig} from "@/entities/stream/ui/meetingConfig";
 import LiveApp from "@/entities/live/live";
 import {LiveConnect} from "@/entities/stream/ui/liveCard";
+import { useTranslations } from "next-intl";
 
 export const StreamCard = () => {
     const [meetingId, setMeetingId] = useState(null);
@@ -22,6 +23,7 @@ export const StreamCard = () => {
         setMeetingId(null);
     };
 
+    const t = useTranslations('Main')
     return authToken && meetingId ? (
         <MeetingProvider
             config={{
@@ -42,7 +44,7 @@ export const StreamCard = () => {
         </MeetingProvider>
     ) : (
         <div className={sx.stream}>
-            <h1>Jonli efir</h1>
+            <h1>{t('stream')}</h1>
             <div className={sx.streamCard}>
                 <VisionConnect setIsLive={setIsLive} setUsername={setUsername} getMeetingAndToken={getMeetingAndToken}/>
                 <LiveConnect setIsLive={setIsLive} setUsername={setUsername} getMeetingAndToken={getMeetingAndToken}/>

@@ -41,7 +41,10 @@
     "mln": "млн",
     "receptionDays": "Приемные дни",
     "experience": "Опыт работы",
-    "jobResponsibilities": "Рабочие обязанности"
+    "jobResponsibilities": "Рабочие обязанности",
+    "username": "Имя пользователя",
+    "joinToVc": "Присоединение к конференции VC",
+    "streamingChat": "Чат"
   },
   "AboutUs": {
     "aboutInstitution": "О заведении",

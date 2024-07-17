@@ -1,4 +1,0 @@
-User-Agent: *
-Allow: /
-
-Sitemap: https://t-med.uz/sitemap.xml

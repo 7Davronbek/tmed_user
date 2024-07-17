@@ -4,10 +4,11 @@ import {usePubSub} from '@videosdk.live/react-sdk'
 import sx from './chat.module.scss'
 import {TextField} from "@mui/material";
 import {BaseButton, TimeFormatter} from "@/shared";
-import {useLocale} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 import ScrollToBottom, {useScrollToBottom, useSticky} from 'react-scroll-to-bottom';
 
 const Chat = ({modal}: { modal: boolean }) => {
+    const t = useTranslations('Main')
     const topic = 'CHAT'
     const [input, setInput] = useState('')
     const scrollToBottom = useScrollToBottom();
@@ -32,7 +33,7 @@ const Chat = ({modal}: { modal: boolean }) => {
     return (
         <div className={sx.chat + ' ' + `${modal ? sx.active : null}`}>
             <div className={sx.top}>
-                <h3>Streaming chat</h3>
+                <h3>{t('streamingChat')}</h3>
             </div>
             <ScrollToBottom className={sx.message}>
                 {messages.map(item => {
@@ -52,7 +53,7 @@ const Chat = ({modal}: { modal: boolean }) => {
             </ScrollToBottom>
             <form style={{display: 'flex'}} onSubmit={handleSubmit}>
                 <TextField fullWidth value={input} onChange={e => setInput(e.target.value)} type="text"/>
-                <button className={sx.button} type={'submit'}><BaseButton active={true} text={'Yuborish'}/></button>
+                <button className={sx.button} type={'submit'}><BaseButton active={true} text={t('send')}/></button>
             </form>
         </div>
     )

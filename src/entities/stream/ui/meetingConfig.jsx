@@ -1,16 +1,15 @@
 'use client'
-import {ParticipantView} from "@/entities/stream/ui/participantView";
-import {Controls} from "@/entities/stream/ui/controls";
-import {useCallback, useEffect, useState} from "react";
+import { ParticipantView } from "@/entities/stream/ui/participantView";
+import { Controls } from "@/entities/stream/ui/controls";
+import { useEffect, useState } from "react";
 import sx from '../style/style.module.scss'
-import {useMeeting} from "@videosdk.live/react-sdk";
-import {MiniLoader} from "@/shared";
+import { useMeeting } from "@videosdk.live/react-sdk";
+import { MiniLoader } from "@/shared";
 import Chat from "@/features/chat";
-import {authToken} from "@/entities";
 
-export const MeetingConfig = ({onMeetingLeave, meetingId, modal, setModal}) => {
+export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) => {
     const [joined, setJoined] = useState(null);
-    const {join, participants, localWebcamOn, localMicOn} = useMeeting({
+    const { join, participants, localWebcamOn, localMicOn } = useMeeting({
         onMeetingJoined: () => {
             setJoined("JOINED");
         },
@@ -20,7 +19,7 @@ export const MeetingConfig = ({onMeetingLeave, meetingId, modal, setModal}) => {
     });
 
     useEffect(() => {
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
         const joinMeeting = () => {
             setJoined("JOINING");
             setTimeout(() => {
@@ -36,7 +35,7 @@ export const MeetingConfig = ({onMeetingLeave, meetingId, modal, setModal}) => {
                 <div className={sx.wrap}>
                     <div className={sx.left}>
                         <div className={sx.gridContainer}>
-                            <Controls meetingId={meetingId} setModal={setModal} localMicOn={localMicOn} localWebcamOn={localWebcamOn}/>
+                            <Controls meetingId={meetingId} setModal={setModal} localMicOn={localMicOn} localWebcamOn={localWebcamOn} />
                             {[...participants.keys()].map((participantId) => (
                                 <div className={sx.gridItem} key={participantId}>
                                     <ParticipantView
@@ -47,14 +46,14 @@ export const MeetingConfig = ({onMeetingLeave, meetingId, modal, setModal}) => {
                         </div>
                     </div>
                     <div className={`${sx.right} ${modal ? sx.active : ''}`}>
-                        <Chat modal={modal}/>
+                        <Chat modal={modal} />
                         <div onClick={() => setModal(false)} className={sx.close}></div>
                     </div>
                 </div>
             ) : joined && joined === "JOINING" ? (
-                <p><MiniLoader/></p>
+                <p><MiniLoader /></p>
             ) : (
-                <></>
+                <div></div>
             )}
         </div>
     );

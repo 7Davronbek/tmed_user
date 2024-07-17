@@ -5,6 +5,7 @@ import Image from "next/image";
 import {TextField} from "@mui/material";
 import {BaseButton} from "@/shared";
 import {useState} from "react";
+import { useTranslations } from 'next-intl';
 
 export const VisionConnect = ({getMeetingAndToken, setUsername, setIsLive}: {
     getMeetingAndToken: (meeting?: string) => void,
@@ -15,7 +16,8 @@ export const VisionConnect = ({getMeetingAndToken, setUsername, setIsLive}: {
     const handleSubmit = async () => {
         getMeetingAndToken(meetingId);
         setIsLive(false)
-    };
+    }
+    const t = useTranslations('Main')
     return (
         <div className={sx.streamCard}>
             <div className={sx.top}>
@@ -29,12 +31,12 @@ export const VisionConnect = ({getMeetingAndToken, setUsername, setIsLive}: {
                     onChange={(e) => {
                         setUsername(e.target.value);
                     }}
-                    required fullWidth placeholder={'Username'}/>
+                    required fullWidth placeholder={t('username')}/>
                 <TextField
                     onChange={(e) => {
                         setMeetingId(e.target.value);
                     }} required fullWidth placeholder={'Vision connect ID'}/>
-                <div onClick={handleSubmit}><BaseButton active={true} text={'Присоединение к конференции VC'}/></div>
+                <div onClick={handleSubmit}><BaseButton active={true} text={t('joinToVc')}/></div>
             </div>
         </div>
     )

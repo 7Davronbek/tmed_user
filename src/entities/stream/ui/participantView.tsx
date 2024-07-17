@@ -29,7 +29,7 @@ export const ParticipantView = ({participantId,}: { participantId: string }) => 
                 micRef.current
                     .play()
                     .catch((error) =>
-                        console.error("videoElem.current.play() failed", error)
+                        toast.error("videoElem.current.play() failed", error)
                     );
             } else {
                 micRef.current.srcObject = null;
@@ -54,7 +54,7 @@ export const ParticipantView = ({participantId,}: { participantId: string }) => 
                         playsinlinet
                         pip={false}
                         light={false}
-                        controls={true}
+                        controls={false}
                         muted={false}
                         playing={true}
                         url={videoStream}

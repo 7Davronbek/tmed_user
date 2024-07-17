@@ -41,7 +41,10 @@
     "mln": "mln",
     "receptionDays": "Reception days",
     "experience": "Experience",
-    "jobResponsibilities": "Job responsibilities"
+    "jobResponsibilities": "Job responsibilities",
+    "username": "Username",
+    "joinToVc": "Join the VC conference",
+    "streamingChat": "Streaming chat"
   },
   "AboutUs": {
     "aboutInstitution": "About the institution",

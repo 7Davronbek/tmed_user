@@ -11,7 +11,7 @@ type Props = {
 
 export const NoData: FC<Props> = ({ show = true, loading }) => {
   return (
-    <>
+    <div>
       {show ? (
         <Box
           display="flex"
@@ -24,12 +24,12 @@ export const NoData: FC<Props> = ({ show = true, loading }) => {
           {loading ? (
             <MiniLoader />
           ) : (
-            <>
+            <div>
               <Image src={noData} alt="T-MED Client" width={200} height={200} />
-            </>
+            </div>
           )}
         </Box>
       ) : null}
-    </>
+    </div>
   );
 };
