@@ -149,10 +149,8 @@ function SpeakerView() {
     return (
         <div>
             <p>Current HLS State: {hlsState}</p>
-            {/* Controls for the meeting */}
             <Controls/>
 
-            {/* Rendring all the HOST participants */}
             {speakers.map((participant) => (
                 <ParticipantView participantId={participant.id} key={participant.id}/>
             ))}

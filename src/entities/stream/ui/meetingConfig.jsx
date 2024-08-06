@@ -10,6 +10,7 @@ import Chat from "@/features/chat";
 export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) => {
     const [joined, setJoined] = useState(null);
     const { join, participants, localWebcamOn, localMicOn } = useMeeting({
+        onParticipantJoined,
         onMeetingJoined: () => {
             setJoined("JOINED");
         },
@@ -17,6 +18,10 @@ export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) =>
             onMeetingLeave();
         },
     });
+
+    function onParticipantJoined(participant) {
+        participant && participant.setQuality("high");
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -27,6 +32,7 @@ export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) =>
             }, 2000)
         }
         joinMeeting()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -53,7 +59,7 @@ export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) =>
             ) : joined && joined === "JOINING" ? (
                 <p><MiniLoader /></p>
             ) : (
-                <div></div>
+                <div>Something went wrong</div>
             )}
         </div>
     );

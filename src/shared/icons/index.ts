@@ -17,6 +17,9 @@ import * as error from "./error";
 import * as edit from "./edit";
 import * as deleteIcon from "./delete";
 import * as add from "./add";
+import * as handShake from "./handShake";
+import * as shareScreen from "./shareScreen";
+import * as end from "./end";
 
 export const Icon = {
   ...logo,
@@ -38,4 +41,7 @@ export const Icon = {
   ...edit,
   ...deleteIcon,
   ...add,
+  ...handShake,
+  ...shareScreen,
+  ...end,
 };
