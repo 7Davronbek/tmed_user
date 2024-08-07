@@ -3,9 +3,10 @@ import React, { FormEvent, useState } from "react";
 import { useMeeting, usePubSub } from "@videosdk.live/react-sdk";
 import sx from "./chat.module.scss";
 import { TextField } from "@mui/material";
-import { BaseButton, TimeFormatter } from "@/shared";
+import { BaseButton, nameTructed, TimeFormatter } from "@/shared";
 import { useLocale, useTranslations } from "next-intl";
 import ScrollToBottom, { useScrollToBottom } from "react-scroll-to-bottom";
+import { toast } from "react-toastify";
 
 const Chat = ({ modal }: { modal: boolean }) => {
   const t = useTranslations("Main");
@@ -17,8 +18,20 @@ const Chat = ({ modal }: { modal: boolean }) => {
   const localParticipantId = mMeeting?.localParticipant?.id;
 
   const { publish, messages } = usePubSub(topic, {
-    onMessageReceived: (message) => {
-      console.log("New Message ", message);
+    onMessageReceived: (data) => {
+      const localParticipantId = mMeeting?.localParticipant?.id;
+
+      const { senderId, senderName, message } = data;
+
+      const isLocal = senderId === localParticipantId;
+
+      if (!isLocal) {
+        // new Audio(
+        //   `https://static.videosdk.live/prebuilt/notification.mp3`
+        // ).play();
+
+        toast(`${nameTructed(senderName, 15)} says: ${message}`);
+      }
     },
     onOldMessagesReceived: (messages) => {
       console.log("Old Message ", messages);
@@ -38,24 +51,10 @@ const Chat = ({ modal }: { modal: boolean }) => {
         <h3>{t("streamingChat")}</h3>
       </div>
       <ScrollToBottom className={sx.message}>
-        {/* <div className={sx.wrap}>
-          <div className={sx.imgWrap}>D</div>
-          <div>
-            <h6>
-              YOU
-              <span>12:34 PM</span>
-            </h6>
-            <p>Message</p>
-          </div>
-
-        </div> */}
         {messages.map((item) => {
           const localSender = localParticipantId === item.senderId;
           return (
-            <div
-              className={localSender ? sx.active : sx.wrap}
-              key={item.id}
-            >
+            <div className={localSender ? sx.active : sx.wrap} key={item.id}>
               {!localSender && (
                 <div className={sx.imgWrap}>
                   {item.senderName.substring(0, 1).toUpperCase()}

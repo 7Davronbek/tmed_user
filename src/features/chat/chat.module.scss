@@ -106,6 +106,10 @@
     flex-direction: column;
     height: 65vh;
     overflow-y: auto;
+    border: 1px solid silver;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
   }
 
   .top {
@@ -129,4 +133,5 @@
   background: none;
   border: none;
   outline: none;
+  padding-right: 0;
 }

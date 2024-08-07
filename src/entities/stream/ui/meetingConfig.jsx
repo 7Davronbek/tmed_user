@@ -6,6 +6,7 @@ import sx from '../style/style.module.scss'
 import { useMeeting } from "@videosdk.live/react-sdk";
 import { MiniLoader } from "@/shared";
 import Chat from "@/features/chat";
+import { PresenterView } from './presenterView'
 
 export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) => {
     const [joined, setJoined] = useState(null);
@@ -35,6 +36,9 @@ export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) =>
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const mMeeting = useMeeting();
+    const isPresenting = !!mMeeting.presenterId;
+
     return (
         <div className={sx.meetingWrap}>
             {joined && joined === "JOINED" ? (
@@ -42,13 +46,18 @@ export const MeetingConfig = ({ onMeetingLeave, meetingId, modal, setModal }) =>
                     <div className={sx.left}>
                         <div className={sx.gridContainer}>
                             <Controls meetingId={meetingId} setModal={setModal} localMicOn={localMicOn} localWebcamOn={localWebcamOn} />
-                            {[...participants.keys()].map((participantId) => (
-                                <div className={sx.gridItem} key={participantId}>
-                                    <ParticipantView
-                                        participantId={participantId}
-                                    />
-                                </div>
-                            ))}
+                            {[...participants.keys()].map((participantId) => {
+                                return (
+                                    <div className={sx.gridItem} key={participantId}>
+                                        {isPresenting ?
+                                            <PresenterView participantId={participantId} /> : null}
+                                        {isPresenting ? null :
+                                            <ParticipantView
+                                                participantId={participantId}
+                                            />}
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
                     <div className={`${sx.right} ${modal ? sx.active : ''}`}>

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useMeeting, useParticipant } from "@videosdk.live/react-sdk";
+import { useEffect, useMemo, useRef } from "react";
+import { useParticipant } from "@videosdk.live/react-sdk";
 import ReactPlayer from "react-player";
 import sx from "../style/style.module.scss";
 import { Icon, nameTructed } from "@/shared";
@@ -32,12 +32,12 @@ export const ParticipantView = ({
   }, [screenShareStream, screenShareOn]);
 
   const videoStream = useMemo(() => {
-    if (webcamOn && webcamStream && !screenShareOn && !screenShareStream) {
+    if (webcamOn && webcamStream) {
       const mediaStream = new MediaStream();
       mediaStream.addTrack(webcamStream.track);
       return mediaStream;
     }
-  }, [screenShareOn, screenShareStream, webcamOn, webcamStream]);
+  }, [webcamOn, webcamStream]);
 
   useEffect(() => {
     if (micRef.current) {
@@ -56,9 +56,6 @@ export const ParticipantView = ({
       }
     }
   }, [micStream, micOn]);
-  const mMeeting = useMeeting();
-  const isPresenting = mMeeting.presenterId ? true : false;
-  console.log(isPresenting);
 
   return (
     <div key={participantId}>
@@ -73,7 +70,7 @@ export const ParticipantView = ({
             controls={true}
             muted={false}
             playing={true}
-            url={isPresenting ? screenShare : videoStream}
+            url={videoStream}
             height={"400px"}
             width={"100%"}
             style={{ objectFit: "cover" }}
