@@ -1,7 +1,11 @@
 version: '3.8'
 services:
-  app:
-    image: openai-demo-app
+  t_med_user:
+    container_name: t_med_user
+    image: t_med_user:latest
+    deploy:
+      restart_policy:
+        condition: on-failure
     build:
       context: ./
       target: dev
@@ -11,4 +15,4 @@ services:
         - /app/node_modules
         - /app/.next
     ports:
-      - "60001:3000"
+      - "7002:80"
