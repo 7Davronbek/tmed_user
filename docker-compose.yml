@@ -1,18 +1,30 @@
-version: '3.8'
+version: "3.7"
+
 services:
-  t_med_user:
-    container_name: t_med_user
-    image: t_med_user:latest
-    deploy:
-      restart_policy:
-        condition: on-failure
+  dev:
     build:
-      context: ./
-      target: dev
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: demo-docker-nextjs-dev
+    environment:
+      - WATCHPACK_POLLING=true
     volumes:
-        - .:/app
-        - /app/node_modules
-        - /app/.next
+      - .:/app
+      - /app/node_modules
+      - /app/.next
     ports:
-      - "7002:80"
+      - "3000:3000"
+    env_file:
+      - .env.local
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: demo-docker-nextjs
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+
+volumes:
+  node_modules:
