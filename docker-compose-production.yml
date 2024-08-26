@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  t_med_user:
+    image: t_med_user:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: t_med_user
+    ports:
+      - "192.168.88.253:5000:3000"
+    env_file:
+      - .env.local
+
+volumes:
+  node_modules:
