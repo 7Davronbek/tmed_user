@@ -14,11 +14,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/dwed_main
           chmod 600 ~/.ssh/dwed_main
-          ssh-keyscan -H 192.168.88.3 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 192.168.88.253 >> ~/.ssh/known_hosts
       - name: Deploy
         run: |
           echo "Deployment STARTED"
-          ssh -i ~/.ssh/dwed_main root@192.168.88.3 << 'EOF'
-            /bin/bash /opt/api.t-med.uz-backend/BMS/deploy.sh
+          ssh -i ~/.ssh/dwed_main root@192.168.88.253 << 'EOF'
+            /bin/bash /opt/t-med.uz-frontend/deploy.sh
           EOF
           echo "Deployment FINISHED"
