@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   category: "T-MED",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "uz_UZ",
     url: "https://t-med.uz",
     title: "T-MED Client",
     description: "T-MED Client",

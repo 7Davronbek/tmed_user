@@ -11,6 +11,3 @@ services:
       - "5000:3000"
     env_file:
       - .env.local
-
-volumes:
-  node_modules:
