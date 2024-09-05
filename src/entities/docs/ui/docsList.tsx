@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client'
 import {
   BaseButton,
@@ -21,19 +22,19 @@ export const DocsList = () => {
   const t = useTranslations("Docs");
   const locale = useLocale();
 
-  const [results, isLoading] = useUnit([$docList, fetchDocListFx.pending]);
+  const [{results}, isLoading] = useUnit([$docList, fetchDocListFx.pending]);
   const [data, setData] = useState<DocType[]>([]);
-
+  
   const [activeBtn, setActiveBtn] = useState<LawType>(LawType.LAW);
 
   const handleChange = (id: LawType) => {
     setActiveBtn(id);
-    const newResults = results.filter((doc) => doc.lawType === id);
+    const newResults = results?.filter((doc) => doc.law_type === id);
     setData(newResults);
   };
 
   useEffect(() => {
-    const newData = results.filter((doc) => doc.lawType === activeBtn);
+    const newData = results?.filter((doc) => doc.law_type === activeBtn);
     setData(newData);
   }, [results, activeBtn]);
 
@@ -98,11 +99,11 @@ export const DocsList = () => {
             link={item.link}
             name={item.name}
             lawType={item.lawType}
-            image={item.image!}
+            image={item.file}
           />
         ))}
 
-      <NoData show={data.length === 0 || isLoading} loading={isLoading} />
+      <NoData show={data?.length === 0 || isLoading} loading={isLoading} />
     </div>
   );
 };

@@ -167,7 +167,7 @@ export const changeLanguageEv = createEvent<string>();
 // STORE
 export const $lang = createStore<string>(Cookies.get("NEXT_LOCALE") || "uz");
 export const $administrationModal = createStore<boolean>(false);
-export const $administrationList = createStore<AdminTypes[] | []>([]);
+export const $administrationList = createStore<any[] | []>([]);
 export const $administrationDetail = createStore<AdminTypes | null>(null);
 
 // STORE MODIFYING

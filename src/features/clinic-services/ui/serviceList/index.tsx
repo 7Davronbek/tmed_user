@@ -4,7 +4,7 @@ import {ClinicServiceCard, getServiceInfinityListEv} from "@/entities/clinic-ser
 
 const ServiceList = () => {
     useEffect(() => {
-        getServiceInfinityListEv({limit: 24, offset: 0})
+        getServiceInfinityListEv({})
     }, []);
     return <ClinicServiceCard/>
 };

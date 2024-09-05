@@ -8,12 +8,11 @@ type StructureProps = StructureType & {
 
 export function StrucutreCard({
   id,
-  file,
   image,
   handleDelete,
 }: StructureProps) {
   return (
-    <div key={id}>
+    <div style={{marginBottom: '12px'}} key={id}>
     {handleDelete && (
       <button style={{display: 'block', marginLeft: 'auto'}} className="button" onClick={() => handleDelete()}>
         <Icon.DeleteIcon />

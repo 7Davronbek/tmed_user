@@ -13,7 +13,7 @@ import AboutLayout from "@/widgets/layout/ui/about";
 const StructurePage = () => {
     const t = useTranslations("AboutUs");
 
-    const [results, isLoading] = useUnit([
+    const [{results}, isLoading] = useUnit([
         $structureList,
         fetchStructureListFx.pending,
     ]);
@@ -23,13 +23,13 @@ const StructurePage = () => {
     }, []);
     return (
         <AboutLayout title={t("structure")}>
-            {results &&
+            {!!results &&
                 !isLoading &&
                 results.map((item) => (
-                    <StrucutreCard key={item.id} file={item.file} image={item.image}/>
+                    <StrucutreCard key={item.id} id={item.id} image={item.image}/>
                 ))}
 
-            <NoData show={results.length === 0 || isLoading} loading={isLoading}/>
+            <NoData show={results?.length === 0 || isLoading} loading={isLoading}/>
         </AboutLayout>
     );
 };

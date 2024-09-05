@@ -6,7 +6,6 @@ const DocsTemplate: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Suspense fallback={<Loader />}>
       <div className="container">
-        {/* <DocsNavbar /> */}
         <Content>
           {children}
         </Content>

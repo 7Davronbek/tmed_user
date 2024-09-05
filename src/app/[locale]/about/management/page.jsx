@@ -1,8 +1,6 @@
-// @ts-nocheck
 "use client";
+import { ManagersCard, NoData } from "@/shared";
 import { Grid } from "@mui/material";
-import { AdministrationsCard, MiniLoader } from "@/shared";
-import sx from "./style.module.scss";
 import { useTranslations } from "next-intl";
 import { useUnit } from "effector-react";
 import {
@@ -12,11 +10,13 @@ import {
   AdminTypes,
   fetchInfinityAdministrationFx,
   getInfiniteAdministrationEv,
-} from "@/entities/admin";
+} from "@/entities";
 import { useEffect, useState } from "react";
+import AboutLayout from "@/widgets/layout/ui/about";
 
-export const Managers = () => {
+const ManagementPage = () => {
   const t = useTranslations("Main");
+
   const [{ results }, isLoading] = useUnit([
     $administrationList,
     fetchInfinityAdministrationFx.pending,
@@ -32,35 +32,33 @@ export const Managers = () => {
   }, []);
 
   useEffect(() => {
-    const newData = results?.filter(
-      (item: { administration_type: AdminEnum }) =>
-        item.administration_type === activeBtn
-    );
-    setData(newData);
+      const newData = results?.filter(
+          (item) => item.administration_type === activeBtn
+      );
+      setData(newData);
   }, [results, activeBtn]);
   return (
-    <div className={sx.managers}>
-      <h1 className={"title"}>{t("management")}</h1>
-
-      <Grid marginTop={4} className={sx.gridWrap} container>
+    <AboutLayout title={t("management")}>
+      <Grid style={{ flexDirection: "column" }} gap={3} container>
         {data?.length > 0 &&
           !isLoading &&
           data?.map((item) => (
-            <AdministrationsCard
+            <ManagersCard
               key={item.id}
               image={String(item.file)}
               name={item.full_name}
               phoneNumber={item.phone_number}
               email={item.email}
               admissionDay={item.reception_day}
-              staj={item.role}
+              staj={item.job_description}
               permission={item.permission}
-              jobTitle={item.job_description}
+              jobTitle={item.role}
             />
           ))}
-
-        {isLoading && <MiniLoader />}
       </Grid>
-    </div>
+
+      <NoData show={data?.length === 0 || isLoading} loading={isLoading} />
+    </AboutLayout>
   );
 };
+export default ManagementPage;

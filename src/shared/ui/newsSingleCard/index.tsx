@@ -70,9 +70,6 @@ export const NewsSingleCard: FC<NewsProps> = ({item, locale}) => {
             <h4>
             <span>{item.author_fullname}</span> {item.text.length > 40 ? item.text.substring(0, 40) + '...' : item.text}
              </h4>
-            <h4>
-                <span>{item.author_fullname}</span> {item.text}
-            </h4>
             {item.comment_count !== 0 && (
                 <h5 onClick={() => getCommentIdEv(item)}>
                     Barcha {item.comment_count}ta izohni ko`ring

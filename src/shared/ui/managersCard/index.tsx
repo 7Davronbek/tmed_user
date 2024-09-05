@@ -74,8 +74,8 @@ export const ManagersCard: FC<ManagerProps> = ({
         <p className={sx.head}>{jobTitle}</p>
         <p className={sx.name}>{name}</p>
         <p className={sx.head}>{t("phone")}:</p>
-        <a className={sx.a} href={`tel: +${phoneNumber}`}>
-          +{phoneNumber}
+        <a className={sx.a} href={`tel: ${phoneNumber}`}>
+          {phoneNumber}
         </a>
         <p className={sx.gray}>{t("receptionDays")}:</p>
         <p className={sx.a}>{admissionDay}</p>

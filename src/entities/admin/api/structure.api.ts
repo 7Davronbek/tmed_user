@@ -7,7 +7,7 @@ export const structureApi = {
       headers: { "Content-Type": "multipart/form-data" },
     }),
   fetchStructures: async () =>
-    await httpServer.get<StructureType[]>(`/api/v1/public/structure`),
+    await httpServer.get<StructureType[]>(`/en/api/v1/structure/`),
   deleteStructure: async (id: string) =>
     await httpServer.delete(`/api/v1/admin/structure/${id}`),
 };

@@ -13,7 +13,7 @@ export const $structureForm = createForm<StructureType>({
         {
           name: "file",
           errorText: "File is required",
-          validator: (value) => Boolean(value.url),
+          validator: (value) => Boolean(value?.url),
         },
       ],
     },
@@ -39,7 +39,7 @@ export const deleteStructureEv = createEvent<string>("");
 
 // STORE
 export const $structureModal = createStore<boolean>(false);
-export const $structureList = createStore<StructureType[] | []>([]);
+export const $structureList = createStore<any[] | []>([]);
 
 // STORE MODIFYING
 $structureList.on(fetchStructureListFx.doneData, (_, { data }) => data);

@@ -4,7 +4,7 @@ import {getInstitutionInfinityListEv, InstitutionCard} from "@/entities/institut
 
 export const InstitutionList = async () => {
     useEffect(() => {
-        getInstitutionInfinityListEv({limit: 20, offset: 0})
+        getInstitutionInfinityListEv({})
     }, [])
     return <InstitutionCard/>
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import Box from "@mui/material/Box";
 import React, { ChangeEventHandler, FormEvent, useCallback } from "react";

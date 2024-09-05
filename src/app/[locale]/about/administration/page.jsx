@@ -1,8 +1,6 @@
-// @ts-nocheck
 "use client";
 import { Grid } from "@mui/material";
-import { AdministrationsCard, MiniLoader } from "@/shared";
-import sx from "./style.module.scss";
+import { AdministrationsCard, NoData } from "@/shared";
 import { useTranslations } from "next-intl";
 import { useUnit } from "effector-react";
 import {
@@ -12,20 +10,23 @@ import {
   AdminTypes,
   fetchInfinityAdministrationFx,
   getInfiniteAdministrationEv,
-} from "@/entities/admin";
+} from "@/entities";
 import { useEffect, useState } from "react";
+import AboutLayout from "@/widgets/layout/ui/about";
 
-export const Managers = () => {
-  const t = useTranslations("Main");
-  const [{ results }, isLoading] = useUnit([
+const AdministrationPage = () => {
+  const t = useTranslations("AboutUs");
+
+  const [{results}, isLoading] = useUnit([
     $administrationList,
     fetchInfinityAdministrationFx.pending,
     $administrationDetail,
   ]);
-
   const [data, setData] = useState([]);
 
-  const [activeBtn, setActiveBtn] = useState(AdminEnum.LEADERSHIP);
+  const [activeBtn, setActiveBtn] = useState(
+    AdminEnum.ADMINISTRATION
+  );
 
   useEffect(() => {
     getInfiniteAdministrationEv();
@@ -33,19 +34,17 @@ export const Managers = () => {
 
   useEffect(() => {
     const newData = results?.filter(
-      (item: { administration_type: AdminEnum }) =>
-        item.administration_type === activeBtn
+      (item) => item.administration_type === activeBtn
     );
     setData(newData);
   }, [results, activeBtn]);
-  return (
-    <div className={sx.managers}>
-      <h1 className={"title"}>{t("management")}</h1>
 
-      <Grid marginTop={4} className={sx.gridWrap} container>
+  return (
+    <AboutLayout title={t("administration")}>
+      <Grid gap={3} container justifyContent={"space-between"}>
         {data?.length > 0 &&
           !isLoading &&
-          data?.map((item) => (
+          data.map((item) => (
             <AdministrationsCard
               key={item.id}
               image={String(item.file)}
@@ -58,9 +57,10 @@ export const Managers = () => {
               jobTitle={item.job_description}
             />
           ))}
-
-        {isLoading && <MiniLoader />}
       </Grid>
-    </div>
+
+      <NoData show={data?.length === 0 || isLoading} loading={isLoading} />
+    </AboutLayout>
   );
 };
+export default AdministrationPage;
