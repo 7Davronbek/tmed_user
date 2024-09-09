@@ -1,5 +1,4 @@
 import {ApiListType, QueryParamsType} from "@/shared";
-import httpClient from "@/shared/api/axios";
 import {ServiceType} from "@/entities/clinic-services";
 import axios from "axios";
 

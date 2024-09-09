@@ -8,7 +8,7 @@ import {
 import { aboutApi } from "../api";
 import { AboutType } from "../types";
 import { $lang, changeLanguageEv } from "../model";
-import { createForm } from "effector-forms";
+// import { createForm } from "effector-forms";
 import { toast } from "react-toastify";
 
 // FORM
