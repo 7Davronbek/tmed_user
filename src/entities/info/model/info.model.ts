@@ -12,14 +12,20 @@ export const getInfoDetailEv = createEvent();
 export const $infoList = createStore(null);
 export const $infoDetail = createStore(null);
 
-$infoList.on(fetchInfoListFx.doneData, (_, { data }) => data);
+$infoList.on(fetchInfoListFx.done, (state, { params, result: { data } }) => {
+  return {
+    ...state,
+    ...data,
+    results: params.offset ? [...state.results, ...data.results] : data.results,
+  };
+});
 $infoDetail.on(fetchInfoDetailFx.doneData, (_, { data }) => data);
 
 sample({
   clock: [getInfoListEv, changeLanguageEv],
   source: $lang,
   filter: (src) => !!src,
-  fn: (src) => ({ lang: src! }),
+  fn: (src, params) => ({ lang: src!, ...params }),
   target: fetchInfoListFx,
 });
 

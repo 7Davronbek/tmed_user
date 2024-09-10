@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {createEffect, createEvent, createStore, sample} from "effector";
 import {CommentType, NewsType} from "../types";
 import { ApiListType, QueryParamsType} from "@/shared";
@@ -26,7 +27,6 @@ $newsList
     })
 $commentsList
     .on(fetchInfiniteCommentsFx.done, (state, {params, result: {data}}) => {
-        // @ts-ignore
         return {...state, ...data, results: params.offset ? [...state.results, ...data.results] : data.results}
     })
 $commentModal.on([getCommentIdEv,modalToggleEv], state => !state)

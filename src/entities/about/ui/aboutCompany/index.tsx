@@ -5,6 +5,7 @@ import sx from "../../style/style.module.scss";
 import { Grid } from "@mui/material";
 import { useEffect } from "react";
 import { useUnit } from "effector-react";
+// import { NoData } from "@/shared";
 import parse from "html-react-parser";
 import Image from "next/image";
 
