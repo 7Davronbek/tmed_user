@@ -4,6 +4,6 @@ import {NewsType} from "@/entities";
 import axios from "axios";
 
 export const newsApi = {
-    fetchNewsList:async ({...params}: QueryParamsType) => await axios.get<ApiListType<NewsType>>('http://82.215.78.34/SMMS/api/v1.0/public/post/', {params}),
-    fetchNewsCommentList:async ({objectId, ...params}: ApiObjQueryParam) => await httpClient.get(`http://82.215.78.34/SMMS/api/v1.0/public/post/${objectId}/comment/`, {params})
+    fetchNewsList:async ({...params}: QueryParamsType) => await axios.get<ApiListType<NewsType>>('https://api.t-med.uz/SMMS/api/v1.0/public/post/', {params}),
+    fetchNewsCommentList:async ({objectId, ...params}: ApiObjQueryParam) => await httpClient.get(`https://api.t-med.uz/SMMS/api/v1.0/public/post/${objectId}/comment/`, {params})
 }
