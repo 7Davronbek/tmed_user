@@ -54,6 +54,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             echo "DEPLOY STARTED"
+            docker stop ${{ vars.SERVICE_NAME }} || true
+            docker rm ${{ vars.SERVICE_NAME }} || true
             docker compose down || true
             docker compose -f docker-compose-production.yml build --no-cache
             docker compose -f docker-compose-production.yml up -d --force-recreate
