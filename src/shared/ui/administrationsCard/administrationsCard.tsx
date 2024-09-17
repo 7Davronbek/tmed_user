@@ -15,7 +15,7 @@ export const AdministrationsCard: FC<Manager> = ({ image, name, phoneNumber, adm
             height={0}
             className={sx.image}
           />
-          <p className={sx.head}>{jobTitle}</p>
+          {/* <p className={sx.head}>{jobTitle}</p> */}
           <p className={sx.name}>{name}</p>
           <p className={sx.head}>Телефон:</p>
           <a className={sx.a} href={`tel:${phoneNumber}`}>{phoneNumber}</a>

@@ -42,12 +42,12 @@ export const Navbar = () => {
               icon={
                 <Icon.NavUserOctagon active={NavLink.isActiveNavLink(`/${local}${AppPathEnum.ABOUT}`)} />} />
           </Link>
-          <Link onClick={() => setBurger(false)} href={`/${local}${AppPathEnum.NEWS}`}>
+          <Link onClick={() => setBurger(false)} href={`/${local}${AppPathEnum.NEWS}/${AppPathEnum.INFO}`}>
             <BaseButton
               text={t('news')}
-              active={NavLink.isActiveNavLink(`/${local}${AppPathEnum.NEWS}`)}
+              active={NavLink.isActiveNavLink(`/${local}${AppPathEnum.NEWS}${AppPathEnum.INFO}`)}
               icon={
-                <Icon.NavPlay active={NavLink.isActiveNavLink(`/${local}${AppPathEnum.NEWS}`)} />} />
+                <Icon.NavPlay active={NavLink.isActiveNavLink(`/${local}${AppPathEnum.NEWS}/${AppPathEnum.INFO}`)} />} />
           </Link>
           <Link onClick={() => setBurger(false)} href={`/${local}${AppPathEnum.STREAM}`}>
             <BaseButton
