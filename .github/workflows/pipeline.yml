@@ -27,6 +27,7 @@ jobs:
           key_path: ${{ vars.SSH_FILE_NAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            set -e  # Exit on error
             echo "GIT PULL STARTED"
             cd "${{ vars.APP_DIRECTORY }}"
             git pull
@@ -53,8 +54,9 @@ jobs:
           key_path: ${{ vars.SSH_FILE_NAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            set -e  # Exit on error
             echo "DEPLOY STARTED"
-            cd "${{ vars.APP_DIRECTORY }}"
+            #cd "${{ vars.APP_DIRECTORY }}"
             docker stop ${{ vars.SERVICE_NAME }} || true
             docker rm ${{ vars.SERVICE_NAME }} || true
             docker compose down || true
