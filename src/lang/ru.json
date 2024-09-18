@@ -46,7 +46,8 @@
     "jobResponsibilities": "Рабочие обязанности",
     "username": "Имя пользователя",
     "joinToVc": "Присоединение к конференции VC",
-    "streamingChat": "Чат"
+    "streamingChat": "Чат",
+    "onlinelibrary": "Онлайн библиотека"
   },
   "AboutUs": {
     "aboutInstitution": "О заведении",

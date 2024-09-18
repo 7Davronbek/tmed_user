@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 import { Content, Footer, Navbar, PreNavbar } from '@/widgets/layout/ui/main/organisms'
 
 export default async function MainLayout ({ children }:PropsWithChildren) {
