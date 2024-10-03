@@ -18,7 +18,7 @@ export const Footer = () => {
 
     const sendFeedbackForm = async () => {
         if (phone.length < 19) {
-            toast.error('Phone number is important')
+            toast.error('Phone number is required')
         } else {
             setIsLoading(true)
             await sendFeedback({phone})
@@ -34,7 +34,7 @@ export const Footer = () => {
                     <Grid xs={12} item xl={1.5}>
                         <Icon.TmedLogo isWhite={true}/>
                     </Grid>
-                    <Grid xs={12} item xl={5.5}>
+                    {/* <Grid xs={12} item xl={5.5}>
                         <h1>{t('questionOrSuggestion')}</h1>
                     </Grid>
                     <Grid xs={12} className={sx.bottom} item xl={5}>
@@ -49,7 +49,7 @@ export const Footer = () => {
                         <a style={{opacity: `${isLoading ? '0.5' : '1'}`}}
                            onClick={!isLoading ? sendFeedbackForm : () => {
                            }}>{t('send')}</a>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
                 <Grid container className={sx.bottomNav}>
                     <Grid className={sx.imageGrid} item xs={12} xl={3}>
@@ -61,16 +61,16 @@ export const Footer = () => {
                             <a>{t('helpAndFeedback')}</a>
                             <a>{t('paidServices')}</a>
                         </div>
-                        <div>
+                        {/* <div>
                             <a>{t('termsOfUse')}</a>
                             <a>{t('privacyPolicy')}</a>
                             <a>{t('webAds')}</a>
-                        </div>
+                        </div> */}
                     </Grid>
-                    <Grid item xs={12} xl={3}>
+                    {/* <Grid item xs={12} xl={3}>
                         <p>{t('paymentMethods')}</p>
                         <Image style={{width: '100%', height: 'auto'}} src={card} alt={'T-MED Client Payments'}/>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </div>
             <h6>©2024 T-med.uz. {t('allRightReserved')} </h6>

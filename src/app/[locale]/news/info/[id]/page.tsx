@@ -14,13 +14,13 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { TimeFormatter } from "@/shared";
 
 export default function InfoDetail() {
   const t = useTranslations("News");
   const params = useParams();
 
   const [results] = useUnit([$infoDetail]);
-  console.log(results);
 
   useEffect(() => {
     getInfoDetailEv(params.id);
@@ -29,15 +29,26 @@ export default function InfoDetail() {
   return (
     <NewsLayout title={t("usefulInfo")}>
       <Box sx={sx}>
-        <Image
-          className="image"
-          width={100}
-          height={100}
-          src={results?.main_photo}
-          alt="TMED NEWS"
-        />
+      <h1>{results?.title}</h1>
+        <div className="image">
+          <Image
+            width={100}
+            height={100}
+            src={results?.main_photo}
+            alt="TMED NEWS"
+          />
+        </div>
 
-        <h1>{results?.title}</h1>
+        <i
+          style={{
+            display: "block",
+            textAlign: "right",
+            marginTop: "10px",
+            opacity: 0.7,
+          }}
+        >
+          {TimeFormatter.timeFormatterFn(results?.created_at, "uz")}
+        </i>
         <div>{parse(String(results?.content))}</div>
 
         {results?.images && (
@@ -85,8 +96,13 @@ const sx: SxProps = {
   overflow: "hidden",
 
   ".image": {
-    width: "100%",
-    height: "auto",
+    textAlign: 'center',
+
+    'img': {
+      width: "60%",
+      height: "400px",
+      objectFit: 'contain',
+    }
   },
 
   figure: {

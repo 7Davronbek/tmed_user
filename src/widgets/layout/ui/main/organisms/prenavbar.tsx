@@ -8,10 +8,10 @@ export const PreNavbar = () => {
   const t = useTranslations("Main");
   return (
     <div className={sx.prenavbar}>
-      <h5 className={sx.wrap}>
+      {/* <h5 className={sx.wrap}>
         <Icon.Location width={24} height={24} color={"#00C1C1"} /> Toshkent{" "}
         <Icon.ArrowDown color={"#fff"} />
-      </h5>
+      </h5> */}
 
       <div className={sx.wrap + " " + sx.middle}>
         <a
@@ -73,6 +73,7 @@ export const PreNavbar = () => {
           className={sx.wrap}
           style={{ marginLeft: "20px" }}
         >
+          <Icon.TelegramOutline />
           {t("onlinelibrary")}
         </a>
         <div className={sx.left}></div>

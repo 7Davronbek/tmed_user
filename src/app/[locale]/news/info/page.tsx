@@ -1,6 +1,7 @@
 // @ts-nocheck
 "use client";
 import { $infoList, getInfoListEv } from "@/entities";
+import { TimeFormatter } from "@/shared";
 import { NewsLayout } from "@/widgets/layout";
 import { Grid, SxProps } from "@mui/material";
 import { useUnit } from "effector-react";
@@ -30,6 +31,7 @@ const InfoPage = () => {
                 src={item.main_photo}
                 alt="TMED CLIENT"
               />
+              <i style={{display: 'block', textAlign: 'right', marginTop: '10px', opacity: 0.7}}>{TimeFormatter.timeFormatterFn(item.created_at, 'uz')}</i>
               <h3>{item?.title}</h3>
               <p>
                 {item?.short_description.length > 200
@@ -61,7 +63,8 @@ const sx: SxProps = {
   },
   img: {
     width: "100%",
-    height: "auto",
+    height: "300px",
+    objectFit: "cover",
   },
 
   h3: {
